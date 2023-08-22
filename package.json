@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@massalabs/massa-web3": "^2.1.0",
     "@react-spring/three": "9.6.1",
     "@react-three/drei": "9.56.1",
     "@react-three/fiber": "8.10.1",
@@ -12,15 +13,19 @@
     "@types/three": "0.148.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router": "^6.15.0",
+    "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
-    "simplex-noise": "4.0.1",
+    "react-use-cookie": "^1.4.0",
+    "sass": "^1.64.2",
+    "simplex-noise": "^4.0.1",
     "three": "0.148.0",
-    "threejs-meshline": "2.0.12"
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -Rf docs; react-scripts build && mv build docs",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
