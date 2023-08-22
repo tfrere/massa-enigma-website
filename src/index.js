@@ -21,7 +21,7 @@
   
 */
 import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import { Suspense, useEffect, useRef, useState } from "react";
 
@@ -34,7 +34,7 @@ import SmartSuspense from "./react-components/SmartSuspense";
 import Introduction from "./routes/Introduction";
 import Start from "./routes/Start";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Start />,

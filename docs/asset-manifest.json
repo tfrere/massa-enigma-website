@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/massa-enigma-website/static/css/main.fdb101fe.css",
-    "main.js": "/massa-enigma-website/static/js/main.04048132.js",
+    "main.js": "/massa-enigma-website/static/js/main.04397c69.js",
     "static/js/845.41785c42.chunk.js": "/massa-enigma-website/static/js/845.41785c42.chunk.js",
     "static/media/STEP_1.mp4": "/massa-enigma-website/static/media/STEP_1.6b104eea6f3f70cd3d67.mp4",
     "static/media/STEP_2.mp4": "/massa-enigma-website/static/media/STEP_2.45f04231a562e99e121a.mp4",
@@ -35,11 +35,11 @@
     "static/media/step-arrow.svg": "/massa-enigma-website/static/media/step-arrow.1b2f1c82364952dfb4e975c57e81a0b7.svg",
     "static/media/sound-icon-muted.svg": "/massa-enigma-website/static/media/sound-icon-muted.ef83eeb4e3cea221cbfe9428742cb29f.svg",
     "main.fdb101fe.css.map": "/massa-enigma-website/static/css/main.fdb101fe.css.map",
-    "main.04048132.js.map": "/massa-enigma-website/static/js/main.04048132.js.map",
+    "main.04397c69.js.map": "/massa-enigma-website/static/js/main.04397c69.js.map",
     "845.41785c42.chunk.js.map": "/massa-enigma-website/static/js/845.41785c42.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fdb101fe.css",
-    "static/js/main.04048132.js"
+    "static/js/main.04397c69.js"
   ]
 }
