@@ -175,6 +175,7 @@ export const App = () => {
   }, 1000);
 
   const isThisTheEnd = currentStep === 5;
+  console.log(123);
 
   return quests ? (
     <div className={`screen ${isThisTheEnd ? "" : "scanlines"}`}>
@@ -183,6 +184,7 @@ export const App = () => {
           <h3>Your screen is too small for the experience !</h3>
         </div>
       </div>
+
       <div ref={htmlPortalRef} id="html-portal"></div>
 
       <div
