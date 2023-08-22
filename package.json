@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": "https://tfrere.github.com/massa-enigma-website",
   "dependencies": {
     "@massalabs/massa-web3": "^2.1.0",
     "@react-spring/three": "9.6.1",
