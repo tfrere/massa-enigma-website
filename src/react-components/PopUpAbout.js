@@ -8,6 +8,7 @@ import incomingMessage from "../public/sounds/incoming-message.mp3";
 import TypingText from "../react-components/TypingText";
 
 import useKeyPress from "../hooks/useKeyPress";
+import Button from "./Button";
 
 export const PopUpAbout = ({
   words,
@@ -18,11 +19,11 @@ export const PopUpAbout = ({
 }) => {
   const [hasFinished, setHasFinished] = useState(false);
 
-  useKeyPress("Enter", () => {
-    if (isOpen) {
-      closeFunction();
+  useEffect(() => {
+    if (isOpen == false) {
+      setHasFinished(false);
     }
-  });
+  }, [isOpen]);
 
   return (
     <>
@@ -31,7 +32,6 @@ export const PopUpAbout = ({
           className={`pop-up-message ${isOpen ? "pop-up-message__open" : ""}`}
         >
           <div className="introduction__content">
-            <h1>Infos</h1>
             {isOpen ? (
               <TypingText
                 speed={10}
@@ -46,14 +46,16 @@ export const PopUpAbout = ({
             ) : (
               <></>
             )}
-            <p
-              className={`introduction__content__link ${
-                hasFinished ? "blinking-slow" : ""
-              }`}
+            <Button
+              className={`${
+                hasFinished ? "" : "hidden"
+              } introduction__content__link`}
+              onClick={() => {
+                closeFunction();
+              }}
             >
-              CLICK OR PRESS <span className="space-key">ENTER</span> TO CLOSE
-              THE MESSAGE
-            </p>
+              CLOSE MESSAGE
+            </Button>
           </div>
         </div>,
         document.body

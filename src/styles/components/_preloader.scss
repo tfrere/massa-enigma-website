@@ -1,4 +1,20 @@
 .preloader {
-  z-index: 999;
+  z-index: 999999999999999999;
   position: absolute;
+  div {
+    transition: all 150ms ease-in-out;
+    transform: translateY(0);
+  }
+}
+
+.preloader.preloader--hidden div {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.preloader__text {
+  font-size: 10px;
+  opacity: 0.3;
+
+  text-align: center;
 }

@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import useSound from "use-sound";
 
 import { ReactComponent as UiIncomingMessage } from "../public/ui-incoming-message.svg";
+import { ReactComponent as ReadMoreButton } from "../public/read-more-button.svg";
 
-import incomingMessage from "../public/sounds/incoming-message.mp3";
+import incomingMessage from "../public/sounds/incoming-message-2.mp3";
+import clickSound from "../public/sounds/switch-on.mp3";
 
 import Button from "./Button";
 import PopUpMessage from "./PopUpMessage";
@@ -14,23 +16,28 @@ export const IncomingMessage = ({
   clueText,
   introText,
   currentStep,
+  isFinalStep,
+  isChangingStep,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [playIncomingMessage] = useSound(incomingMessage, {
     playbackRate: 1,
     volume: 0.05,
     interrupt: true,
   });
+  const [playHoverSound] = useSound(clickSound, {
+    playbackRate: 1,
+    volume: 0.02,
+    interrupt: true,
+  });
 
-  const classNames = isModalOpen
-    ? "incoming-message incoming-message--hidden"
-    : "incoming-message";
+  const classNames = `incoming-message ${
+    isModalOpen || isChangingStep ? "incoming-message--hidden" : ""
+  }`;
 
-  useEffect(() => {
-    playIncomingMessage();
-    setIsFirstLoad(false);
-  }, []);
+  // if (isFinalStep) {
+  //   playIncomingMessage();
+  // }
 
   return (
     <div className={classNames}>
@@ -43,15 +50,18 @@ export const IncomingMessage = ({
         }}
       />
       <div className="incoming-message__words">{clueText}</div>
-      <div className="incoming-message__massa-logo"></div>
-      <Button
-        className="incoming-message__read-more-button"
+      <ReadMoreButton
+        className="incoming-message__button"
+        onMouseOver={() => {
+          playHoverSound();
+        }}
+        onMouseOut={() => {
+          playHoverSound();
+        }}
         onClick={() => {
           setIsModalOpen(true);
         }}
-      >
-        read more
-      </Button>
+      />
     </div>
   );
 };

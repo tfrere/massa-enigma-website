@@ -1,37 +1,56 @@
 import LoadingSvg from "../public/loading.svg";
 
 import TypingText from "../react-components/TypingText";
-import { useState } from "react";
-import useKeyPress from "../hooks/useKeyPress";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Button from "../react-components/Button";
+
 const Introduction = (props) => {
-  const [hasFinished, setHasFinished] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
   const changeRoute = () => navigate("/app");
-  useKeyPress("Enter", () => {
-    changeRoute();
-  });
+
+  useEffect(() => {
+    window.setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+  }, []);
 
   return (
-    <div className="screen center introduction" to="/app">
+    <div
+      className={`screen center introduction introduction--center ${
+        !isLoaded ? "introduction--hidden" : ""
+      }`}
+    >
       <div className="introduction__content">
-        <TypingText
-          speed={10}
-          callback={() => {
-            window.setTimeout(() => {
-              setHasFinished(true);
-            }, 500);
-          }}
-          words="You are about to enter a game designed by <a href='https://obvious-art.com/' target='_blank'>Obvious</a>and <a href='https://massa.net/' target='_blank'>Massa</a>. To participate, seek the answers to the <span>enigmas</span>, and share them on <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a> to earn the associated reward."
-        />
-        <p
-          className={`introduction__content__link ${
-            hasFinished ? "blinking-slow" : ""
-          }`}
-        >
-          CLICK OR PRESS <span className="space-key">ENTER</span> TO START
+        <p className="typing-text typing-text--center">
+          You are about to enter a game designed by{" "}
+          <a href="https://obvious-art.com/" target="_blank">
+            Obvious
+          </a>{" "}
+          and{" "}
+          <a href="https://massa.net/" target="_blank">
+            Massa
+          </a>
+          . To participate, seek the answers to the <span>enigmas</span>, and
+          share them on{" "}
+          <a target="_blank" href="https://discord.gg/nh8rMTda">
+            Discord
+          </a>{" "}
+          to earn the associated reward.
         </p>
+        <Button
+          className={`introduction__content__link`}
+          onClick={() => {
+            setIsLoaded(false);
+            window.setTimeout(() => {
+              changeRoute();
+            }, 300);
+          }}
+        >
+          START GAME
+        </Button>
       </div>
     </div>
   );

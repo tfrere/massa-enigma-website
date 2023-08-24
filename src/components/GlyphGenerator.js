@@ -119,8 +119,8 @@ var fract = (function () {
   };
 
   module.fixsize = function () {
-    width = 300;
-    height = 300;
+    width = 150;
+    height = 150;
     c.width = width;
     c.height = height;
     ctx.fillStyle = fract.bg;
@@ -1346,7 +1346,15 @@ var fract = (function () {
   return module;
 })();
 
-export default fract;
+const initFract = () => {
+  fract.init(config);
+  fract.animate.toggle();
+  fract.trails.toggle();
+};
+
+document.fract = fract;
+
+initFract();
 
 // timeline
 /*

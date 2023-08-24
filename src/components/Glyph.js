@@ -1,17 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import {
-  Float,
-  Edges,
-  Plane,
-  MeshDistortMaterial,
-  Html,
-} from "@react-three/drei";
-import { MeshBasicMaterial } from "three";
-
-import fract, { config } from "./GlyphGenerator.js";
-import useInterval from "../utils/useInterval.js";
+import { config } from "./GlyphGenerator";
 
 var removeBlack = function (data, imageData, bufferctx) {
   for (var i = 0; i < data.length; i += 4) {
@@ -46,73 +34,57 @@ const changeGlyph = (config, step) => {
       // S
       config.angle = 142;
       config.skewAngle = 12;
-      config.poly = 1;
+      config.poly = 3;
       break;
     case 4:
       // A
       config.angle = 24;
       config.skewAngle = 4.5;
-      config.poly = 2;
+      config.poly = 4;
       break;
     case 5:
       // S
       config.angle = 142;
       config.skewAngle = 12;
-      config.poly = 1;
+      config.poly = 5;
       break;
   }
-  fract.set(config);
+  document.fract.set(config);
 };
 
 export default function Glyph(props) {
   const canvasRef = useRef();
-  const [hasStarted, setHasStarted] = useState(false);
 
-  const initFract = () => {
-    console.log("initFract");
-    fract.init(config);
-    changeGlyph(config, props.currentStep);
-    fract.animate.toggle();
-    fract.trails.toggle();
-    updateGlyph();
+  const loop = () => {
+    if (canvasRef.current) {
+      var canvas = canvasRef.current;
+      var buffer = document.createElement("canvas");
+      const width = 150;
+      const height = 150;
+      canvas.width = width;
+      canvas.height = height;
+      var bufferctx = document.getElementById("canvas-glyph").getContext("2d");
+
+      var imageData = bufferctx.getImageData(0, 0, width, height);
+      var data = imageData.data;
+
+      removeBlack(data, imageData, bufferctx);
+      canvas.getContext("2d").putImageData(imageData, 0, 0);
+    }
+    window.requestAnimationFrame(loop);
   };
 
   useEffect(() => {
-    window.setTimeout(() => {
-      initFract();
-      setHasStarted(true);
-    }, 1000);
+    changeGlyph(config, props.currentStep);
+  }, [props.currentStep]);
+
+  useEffect(() => {
+    let raf = window.requestAnimationFrame(loop);
+
+    return () => {
+      window.cancelAnimationFrame(raf);
+    };
   }, []);
 
-  const updateGlyph = () => {
-    var canvas = canvasRef.current;
-    var buffer = document.createElement("canvas");
-    buffer.width = canvas.width;
-    buffer.height = canvas.height;
-    var bufferctx = canvasRef.current.getContext("2d");
-
-    bufferctx.drawImage(new Image(canvas.width, canvas.height), 0, 0);
-
-    var imageData = bufferctx.getImageData(0, 0, buffer.width, buffer.height);
-    var data = imageData.data;
-
-    removeBlack(data, imageData, bufferctx);
-    canvas.getContext("2d").drawImage(buffer, 0, 0);
-  };
-
-  if (canvasRef.current) changeGlyph(config, props.currentStep);
-
-  useFrame(({ clock }) => {
-    if (hasStarted && canvasRef.current) updateGlyph();
-  });
-
-  return (
-    <Html fullscreen portal={props.htmlPortalRef}>
-      <canvas
-        className="ui-top-right__glyph"
-        id="canvas-glyph"
-        ref={canvasRef}
-      />
-    </Html>
-  );
+  return <canvas className="ui-top-right__glyph" ref={canvasRef} />;
 }

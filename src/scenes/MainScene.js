@@ -1,23 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import {
-  SpotLight,
-  Shake,
-  Text,
-  Stars,
-  Segments,
-  Segment,
-  Html,
-  Stats,
-  Float,
-  Edges,
-  Environment,
-  OrbitControls,
-} from "@react-three/drei";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import { useSpring, animated, easings } from "@react-spring/three";
-
 import VideoTexturedPlane from "../components/VideoTexturedPlane";
 
 import ImageStep1 from "../public/videos/STEP_1.mp4";
@@ -33,14 +16,13 @@ import SoundStep3 from "../public/sounds/step-3.mp3";
 import SoundStep4 from "../public/sounds/step-4.mp3";
 import SoundStep5 from "../public/sounds/step-5.mp3";
 
-import FireSound from "../public/sounds/fire.mp3";
-
 import useSound from "use-sound";
 
-import SkyBox from "../components/Skybox";
-import TypingText from "../react-components/TypingText";
-
 // const videourl = 'https://corsproxy.io/?https://drive.google.com/file/d/145bLeIIYDT-v-Qpdb8V0Z4DwaAADWo9o'
+
+function map(n, start1, end1, start2, end2) {
+  return ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
+}
 
 const MainScene = (props) => {
   const { camera, renderer, mouse } = useThree();
@@ -92,18 +74,26 @@ const MainScene = (props) => {
   };
 
   useFrame(({ mouse, clock }) => {
-    //setX( camera.position.x )
-
-    //camera.position.setX(x)
-
-    camera.position.setX(-mouse.x);
-    camera.position.setY(-mouse.y / 5);
+    camera.position.setX(
+      -map(
+        document.mouseX || window.screen.width / 2,
+        0,
+        window.screen.width,
+        -1,
+        1
+      )
+    );
+    camera.position.setY(
+      -map(
+        document.mouseX || window.screen.width / 2,
+        0,
+        window.screen.width,
+        -1,
+        1
+      ) / 5
+    );
     camera.lookAt(0, 0, 0);
   });
-
-  // useEffect(() => {
-
-  // }, [props.currentStep]);
 
   let backgroundVideo = null;
 
@@ -153,12 +143,6 @@ const MainScene = (props) => {
         position={[0, 0, -1.2]}
       />
       {/* <SkyBox imageUrl={backgroundVideo} /> */}
-      {/* <Html occlude distanceFactor={0} position={[0, 0, 0.51]} transform>
-        <TypingText
-          speed={50}
-          words='You are about to enter a game designed by <a href="">Obvious</a> and <a href="">Massa</a>. To participate, seek the answers to the <span>enigmas</span>, and share them on <a href="">Discord</a> to earn the associated reward'
-        />
-      </Html> */}
     </>
   );
 };

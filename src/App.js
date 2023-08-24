@@ -34,6 +34,7 @@ import { ReactComponent as UiCenter } from "./public/ui-center.svg";
 import { ReactComponent as UiScan } from "./public/ui-center-scan.svg";
 import { ReactComponent as UiTopLeft } from "./public/ui-top-left.svg";
 import { ReactComponent as UiTopRight } from "./public/ui-top-right.svg";
+import { ReactComponent as UiTopRightNotFound } from "./public/ui-top-right-not-found.svg";
 import { ReactComponent as UiBottomLeft } from "./public/ui-bottom-left.svg";
 import { ReactComponent as DiscordIcon } from "./public/discord-icon.svg";
 import { ReactComponent as StepArrow } from "./public/step-arrow.svg";
@@ -46,20 +47,24 @@ import {
 } from "@massalabs/massa-web3";
 
 import { useInterval } from "./hooks/useInterval";
+import questsOriginalData from "./quests.js";
+
+const IS_PROD = false;
 
 export const App = () => {
-  const debugMode = false;
+  const debugMode = true;
   const htmlPortalRef = useRef();
-  const [quests, setQuests] = useState([]);
+  const [quests, setQuests] = useState(IS_PROD ? [] : questsOriginalData);
 
   const [currentStep, setCurrentStep] = useState(0);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [maxStep, setMaxStep] = useState(5);
   const [isPopUpAboutOpen, setIsPopUpAboutOpen] = useState(false);
   const [isPopUpGlyphUpdateOpen, setIsPopUpGlyphUpdateOpen] = useState(false);
   const [clueText, setClueText] = useState("");
   const [introText, setIntroText] = useState("");
   const [winnerText, setWinnerText] = useState("");
-  const [isChanginStep, setIsChangingStep] = useState(0);
+  const [isChangingStep, setIsChangingStep] = useState(0);
   const [hasUserBeenOnboarded, setHasUserBeenOnboarded] = useCookie(
     "hasUserBeenOnboarded",
     true
@@ -88,7 +93,7 @@ export const App = () => {
     },
   ];
 
-  postProcessingValues = isChanginStep
+  postProcessingValues = isChangingStep
     ? postProcessingValues[0]
     : postProcessingValues[1];
 
@@ -111,12 +116,12 @@ export const App = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < maxStep && !isChanginStep) {
+    if (currentStep < maxStep && !isChangingStep) {
       changeStep(currentStep + 1);
     }
   };
   const prevStep = () => {
-    if (currentStep > 0 && !isChanginStep) {
+    if (currentStep > 0 && !isChangingStep) {
       changeStep(currentStep - 1);
     }
   };
@@ -129,19 +134,25 @@ export const App = () => {
   });
 
   const getData = async () => {
-    const testnetClient = await ClientFactory.createDefaultClient(
-      DefaultProviderUrls.BUILDNET,
-      true // retry failed requests
-    );
+    let questsData;
+    if (IS_PROD) {
+      const testnetClient = await ClientFactory.createDefaultClient(
+        DefaultProviderUrls.BUILDNET,
+        true // retry failed requests
+      );
 
-    const res = await testnetClient.smartContracts().readSmartContract({
-      maxGas: BigInt(10000000),
-      targetAddress: "AS1TdyVHk9b7EkqfzBo5zjr9GJT24tZbnSQnq7yMCm1gn1chK5Di",
-      targetFunction: "getQuest",
-      parameter: [],
-    });
+      const res = await testnetClient.smartContracts().readSmartContract({
+        maxGas: BigInt(10000000),
+        targetAddress: "AS1TdyVHk9b7EkqfzBo5zjr9GJT24tZbnSQnq7yMCm1gn1chK5Di",
+        targetFunction: "getQuest",
+        parameter: [],
+      });
 
-    const questsData = JSON.parse(bytesToStr(res.returnValue));
+      questsData = JSON.parse(bytesToStr(res.returnValue));
+    } else {
+      questsData = questsOriginalData;
+    }
+
     const newCurrentStep = questsData.length - 1;
 
     console.log("quests", questsData);
@@ -149,9 +160,9 @@ export const App = () => {
     // TANT QUE PERSONNE NE TROUVE ON NE FAIT PAS EVOLUER LA VUE
     if (newCurrentStep != maxStep) {
       setQuests(questsData);
-      changeStep(newCurrentStep);
       setCurrentStep(newCurrentStep);
       setMaxStep(newCurrentStep);
+      changeStep(newCurrentStep);
       // setClueText(questsData[newCurrentStep].clue);
       // setIntroText(questsData[newCurrentStep].intro);
     }
@@ -159,10 +170,12 @@ export const App = () => {
 
   useEffect(() => {
     getData();
+    window.setTimeout(() => {
+      setIsFirstLoad(false);
+    }, 1000);
   }, []);
 
   useEffect(() => {
-    console.log(quests.length);
     if (quests.length > 0) {
       setClueText(quests[currentStep].clue);
       setIntroText(quests[currentStep].intro);
@@ -175,16 +188,13 @@ export const App = () => {
   }, 1000);
 
   const isThisTheEnd = currentStep === 5;
-  console.log(123);
 
   return quests ? (
-    <div className={`screen ${isThisTheEnd ? "" : "scanlines"}`}>
-      <div className="screen no-responsive">
-        <div>
-          <h3>Your screen is too small for the experience !</h3>
-        </div>
-      </div>
-
+    <div
+      className={`screen ${isThisTheEnd ? "" : "scanlines"} ${
+        isFirstLoad ? "black" : ""
+      }`}
+    >
       <div ref={htmlPortalRef} id="html-portal"></div>
 
       <div
@@ -192,16 +202,30 @@ export const App = () => {
       >
         <div className="ui-container__center">
           <UiCenter />
-          {winnerText ? winnerText : <UiScan className="blinking-slow" />}
+          {!winnerText ? (
+            <UiScan className="ui-container__center__searching blinking-slow" />
+          ) : null}
         </div>
         <div className="ui-top-left">
           <UiTopLeft />
         </div>
         <div className="ui-top-right">
+          {winnerText ? (
+            <>
+              <Glyph currentStep={currentStep} />
+              <div className="ui-top-right__winner">found by {winnerText}</div>
+            </>
+          ) : (
+            <>
+              <UiTopRightNotFound className="ui-top-right__unknown-glyph blinking-slow" />
+              {/* <div className="ui-top-right__unknown-glyph">?</div>
+              <UiScan className="ui-top-right__scan blinking-slow" /> */}
+            </>
+          )}
           <span className="ui-top-right__current-step">0{currentStep}</span>
           <span
             className={`ui-top-right__current-step-next ${
-              currentStep < maxStep && !isChanginStep
+              currentStep < maxStep && !isChangingStep
                 ? "ui-top-right__current-step-next--active"
                 : ""
             }`}
@@ -213,7 +237,7 @@ export const App = () => {
           </span>
           <span
             className={`ui-top-right__current-step-prev ${
-              currentStep > 0 && !isChanginStep
+              currentStep > 0 && !isChangingStep
                 ? "ui-top-right__current-step-next--active"
                 : ""
             }`}
@@ -234,6 +258,8 @@ export const App = () => {
             clueText={clueText}
             introText={introText}
             currentStep={currentStep}
+            isFinalStep={winnerText === ""}
+            isChangingStep={isChangingStep}
           />
         </div>
         <div className="ui-bottom-left">
@@ -241,6 +267,7 @@ export const App = () => {
         </div>
         <div className="ui-bottom-right">
           <Button
+            className="square square-diag"
             onClick={() => {
               // changeRoute();
               setIsPopUpAboutOpen(true);
@@ -256,7 +283,7 @@ export const App = () => {
             }}
           />
           <Button
-            className="square"
+            className="square square-diag--reverse"
             onClick={() => {
               window.open("https://discord.gg/nh8rMTda", "_blank");
             }}
@@ -291,7 +318,6 @@ export const App = () => {
           <EffectComposer>
             {!isThisTheEnd ? (
               <>
-                {/* <ChromaticAberration offset={3} /> */}
                 <Glitch
                   delay={postProcessingValues.delay}
                   duration={postProcessingValues.duration}
@@ -307,83 +333,7 @@ export const App = () => {
             htmlPortalRef={htmlPortalRef}
             currentStep={currentStep}
           />
-          {/* <Glyph htmlPortalRef={htmlPortalRef} currentStep={currentStep} /> */}
         </Canvas>
-      </div>
-      <div id="controls" className="controls">
-        <div id="helpbutton" className="pushbutton">
-          <div className="pushback">
-            <a className="pushfore"> ? </a>{" "}
-          </div>
-        </div>
-
-        <div className="sliderlinecontainer">
-          <div className="slider" id="angle">
-            <div className="sliderlabeldiv">
-              <p className="sltitle">ANGLE</p>
-              <a id="langle"></a>
-              <a>&deg;</a>
-            </div>
-          </div>
-          <div className="sliderline"></div>
-        </div>
-        <div className="sliderlinecontainer">
-          <div className="slider" id="skewangle">
-            <div className="sliderlabeldiv">
-              <p className="sltitle">SKEW</p>
-              <a id="lskewangle"></a>
-              <a>&deg;</a>
-            </div>
-          </div>
-          <div className="sliderline"></div>
-        </div>
-
-        <div id="thumbtable">
-          <div id="thumbarea"></div>
-        </div>
-
-        <div>
-          <div>
-            <div>
-              <a className="button" id="randombutton">
-                RESET
-              </a>
-            </div>
-            <div>
-              <a className="button" id="randombutton">
-                RANDOM
-              </a>
-            </div>
-            <div>
-              <div id="animatecell">
-                <a className="button" id="animatebutton">
-                  ANIMATE
-                </a>
-                <div className="menu">
-                  <a className="button" id="autobutton">
-                    AUTO
-                  </a>
-                  <a className="button" id="anglelock">
-                    ANGLE
-                  </a>
-                  <a className="button" id="skewanglelock">
-                    SKEW
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div>
-              <a className="button" id="colorbutton">
-                COLOR
-              </a>
-            </div>
-            <div>
-              <a className="button" id="trailsbutton">
-                TRAILS
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   ) : null;

@@ -1,7 +1,7 @@
 .incoming-message {
   opacity: 1;
   transform: translateY(0px);
-  transition: all 150ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 .incoming-message--hidden {
   opacity: 0;
@@ -28,6 +28,7 @@
       calc(100% - 10px) 0,
       0% 0%,
       0% calc(100% - 10px),
+      10px 100%,
       100% 100%
     );
   }
@@ -58,9 +59,15 @@
   }
 }
 
-.incoming-message__read-more-button {
+.incoming-message__button {
   float: right;
-  margin-top: 5px;
+  margin-right: 0px;
+  margin-top: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .incoming-message__massa-logo {

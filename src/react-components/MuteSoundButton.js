@@ -4,7 +4,6 @@ import Button from "./Button";
 import SoundIconSvg from "../public/sound-icon.svg";
 import SoundIconMutedSvg from "../public/sound-icon-muted.svg";
 import { createNoise2D, createNoise3D } from "simplex-noise";
-// import Howler from "howler";
 
 console.log();
 let time = 0;
@@ -20,9 +19,8 @@ const MuteSoundButton = () => {
   const noise2D = createNoise2D();
 
   const loop = () => {
+    if (myCanvas.current == null) return;
     time = time + 1;
-    window.requestAnimationFrame(loop);
-
     let ctx = myCanvas.current.getContext("2d");
 
     ctx.clearRect(0, 0, width, height);
@@ -41,6 +39,7 @@ const MuteSoundButton = () => {
       );
     }
     // ctx.rotate(getRadianAngle(180));
+    window.requestAnimationFrame(loop);
   };
 
   useEffect(() => {
@@ -53,7 +52,7 @@ const MuteSoundButton = () => {
 
   return (
     <Button
-      className="square"
+      className="square square-diag--reverse"
       onClick={() => {
         setIsMuted(!isMuted);
         if (isMuted) {

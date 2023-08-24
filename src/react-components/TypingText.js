@@ -97,7 +97,7 @@ const useRandomInterval = (callback, minDelay, maxDelay) => {
   return cancel;
 };
 
-export const TypingText = ({ words, speed = 50, callback }) => {
+export const TypingText = ({ words, speed = 50, callback, className }) => {
   let array = splitString(words);
 
   console.log(array);
@@ -146,20 +146,8 @@ export const TypingText = ({ words, speed = 50, callback }) => {
       } else {
         if (!array[charIndex] == " ") {
           playKeyboardSound2();
-          array[charIndex] = "";
         }
       }
-
-      // switch (random(0, 3)) {
-      //   case 0:
-      //     playKeyboardSound2();
-      //   case 1:
-      //     playKeyboardSound2();
-      //   case 2:
-      //     playKeyboardSound2();
-      //   case 3:
-      //     playKeyboardSound2();
-      // }
     }
   }, [charIndex]);
 
@@ -171,12 +159,13 @@ export const TypingText = ({ words, speed = 50, callback }) => {
 
   useEffect(() => {
     function handleClick(event) {
-      console.log(array.length);
       const newWords = array.slice(0, array.length).join("");
       setHasStoped(true);
       setCharIndex(array.length);
       setCurrentWords(newWords);
       playKeyboardSound2();
+      event.stopPropagation();
+      event.preventDefault();
     }
     document.addEventListener("mousedown", handleClick);
     return () => {
@@ -186,7 +175,7 @@ export const TypingText = ({ words, speed = 50, callback }) => {
 
   return (
     <p
-      className="typing-text"
+      className={`typing-text ${className}`}
       dangerouslySetInnerHTML={{
         __html:
           currentWords + (!hasStoped ? "<span class='rectangle'>▮</span>" : ""),
