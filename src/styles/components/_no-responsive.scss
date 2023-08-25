@@ -1,0 +1,21 @@
+.no-responsive {
+  display: none;
+}
+
+@media (max-width: 1280px) or (min-aspect-ratio: 1430/850) {
+  .no-responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999999999;
+    background: $background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.no-responsive__content {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}

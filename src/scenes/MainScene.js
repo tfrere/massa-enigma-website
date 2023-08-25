@@ -10,6 +10,7 @@ import ImageStep4 from "../public/videos/STEP_4.mp4";
 import ImageStep5 from "../public/videos/STEP_5.mp4";
 import ImageStep6 from "../public/videos/STEP_6.mp4";
 
+import SoundStep0 from "../public/sounds/step-0.mp3";
 import SoundStep1 from "../public/sounds/step-1.mp3";
 import SoundStep2 from "../public/sounds/step-2.mp3";
 import SoundStep3 from "../public/sounds/step-3.mp3";
@@ -30,7 +31,14 @@ const MainScene = (props) => {
 
   const textureRatio = 1.5;
 
-  const [playStep1Sound, { sound, stop: stop1 }] = useSound(SoundStep1, {
+  const [playStep0Sound, { stop: stop0 }] = useSound(SoundStep0, {
+    playbackRate: 1.2,
+    volume: 0.05,
+    interrupt: true,
+    loop: true,
+  });
+
+  const [playStep1Sound, { stop: stop1 }] = useSound(SoundStep1, {
     playbackRate: 1.2,
     volume: 0.05,
     interrupt: true,
@@ -101,7 +109,7 @@ const MainScene = (props) => {
     case 0:
       backgroundVideo = ImageStep1;
       stopSounds();
-      playStep1Sound();
+      playStep0Sound();
       break;
     case 1:
       backgroundVideo = ImageStep2;

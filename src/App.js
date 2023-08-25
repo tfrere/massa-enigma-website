@@ -27,6 +27,8 @@ import PopUpAbout from "./react-components/PopUpAbout";
 import PopUpGlyphUpdate from "./react-components/PopUpGlyphUpdate";
 import Button from "./react-components/Button";
 import MuteSoundButton from "./react-components/MuteSoundButton";
+import MousePosition from "./react-components/MousePosition";
+import Time from "./react-components/Time";
 
 import useCookie from "react-use-cookie";
 
@@ -38,6 +40,7 @@ import { ReactComponent as UiTopRightNotFound } from "./public/ui-top-right-not-
 import { ReactComponent as UiBottomLeft } from "./public/ui-bottom-left.svg";
 import { ReactComponent as DiscordIcon } from "./public/discord-icon.svg";
 import { ReactComponent as StepArrow } from "./public/step-arrow.svg";
+import { ReactComponent as InstagramIcon } from "./public/instagram-icon.svg";
 import {
   ClientFactory,
   Args,
@@ -58,17 +61,18 @@ export const App = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
-  const [maxStep, setMaxStep] = useState(5);
+  const [maxStep, setMaxStep] = useState(6);
   const [isPopUpAboutOpen, setIsPopUpAboutOpen] = useState(false);
+  const [isIncomingMessageOpen, setIsIncomingMessageOpen] = useState(false);
   const [isPopUpGlyphUpdateOpen, setIsPopUpGlyphUpdateOpen] = useState(false);
   const [clueText, setClueText] = useState("");
   const [introText, setIntroText] = useState("");
   const [winnerText, setWinnerText] = useState("");
   const [isChangingStep, setIsChangingStep] = useState(0);
-  const [hasUserBeenOnboarded, setHasUserBeenOnboarded] = useCookie(
-    "hasUserBeenOnboarded",
-    true
-  );
+  // const [hasUserBeenOnboarded, setHasUserBeenOnboarded] = useCookie(
+  //   "hasUserBeenOnboarded",
+  //   true
+  // );
 
   console.log("app");
 
@@ -155,10 +159,11 @@ export const App = () => {
 
     const newCurrentStep = questsData.length - 1;
 
+    console.log("newCurrentStep", newCurrentStep);
     console.log("quests", questsData);
 
     // TANT QUE PERSONNE NE TROUVE ON NE FAIT PAS EVOLUER LA VUE
-    if (newCurrentStep != maxStep) {
+    if (newCurrentStep != maxStep || isFirstLoad) {
       setQuests(questsData);
       setCurrentStep(newCurrentStep);
       setMaxStep(newCurrentStep);
@@ -187,7 +192,7 @@ export const App = () => {
     getData();
   }, 1000);
 
-  const isThisTheEnd = currentStep === 5;
+  const isThisTheEnd = currentStep === 6;
 
   return quests ? (
     <div
@@ -201,6 +206,7 @@ export const App = () => {
         className={`ui-container ${isThisTheEnd ? "ui-container--hidden" : ""}`}
       >
         <div className="ui-container__center">
+          <MousePosition />
           <UiCenter />
           {!winnerText ? (
             <UiScan className="ui-container__center__searching blinking-slow" />
@@ -210,8 +216,19 @@ export const App = () => {
           <UiTopLeft />
         </div>
         <div className="ui-top-right">
+          <Time />
           {winnerText ? (
             <>
+              {currentStep == 3 ? (
+                <div
+                  className="clickable-glyph"
+                  onClick={() => {
+                    window.open(quests[currentStep].file_url, "_blank");
+                  }}
+                ></div>
+              ) : (
+                ""
+              )}
               <Glyph currentStep={currentStep} />
               <div className="ui-top-right__winner">found by {winnerText}</div>
             </>
@@ -260,6 +277,7 @@ export const App = () => {
             currentStep={currentStep}
             isFinalStep={winnerText === ""}
             isChangingStep={isChangingStep}
+            isOpen={isIncomingMessageOpen}
           />
         </div>
         <div className="ui-bottom-left">
@@ -290,11 +308,31 @@ export const App = () => {
           >
             <DiscordIcon />
           </Button>
-          <MuteSoundButton />
+
+          {currentStep == 2 ? (
+            <Button
+              className="square square-diag--reverse"
+              onClick={() => {
+                window.open("https://www.instagram.com/obvious_art/", "_blank");
+              }}
+            >
+              <InstagramIcon />
+            </Button>
+          ) : null}
+
+          <MuteSoundButton
+            onClick={
+              currentStep == 1
+                ? () => {
+                    window.open(quests[currentStep].file_url, "_blank");
+                  }
+                : null
+            }
+          />
         </div>
       </div>
       <PopUpGlyphUpdate
-        text="<span>Counterfeit Reality</span> is an experience proposed by  <a href='https://massa.net/' target='_blank'>Massa</a> and <a href='https://obvious-art.com/' target='_blank'>Obvious</a>. The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a>.Rewards will be discovered upon resolution of the riddles, and include discounts for <span>Massa ICO</span> as well as <span>Obvious  NFT artwork</span>."
+        text="A glyph has been found by TFRERE Youpi !"
         isOpen={isPopUpGlyphUpdateOpen}
         closeFunction={() => {
           setIsPopUpGlyphUpdateOpen(false);
@@ -302,7 +340,6 @@ export const App = () => {
       />
       <div id="r3f-canvas" className="screen">
         <Canvas
-          shadows
           dpr={[1, 1]}
           camera={{ position: [0, 2, 9.5], fov: 50 }}
           resize={{ scroll: true, debounce: { scroll: 50, resize: 50 } }}

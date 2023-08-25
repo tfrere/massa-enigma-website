@@ -85,6 +85,10 @@ button.square--small {
   }
 }
 
+.button--no-margin {
+  margin: 0;
+}
+
 .square-diag--reverse {
   &:before {
     content: "";

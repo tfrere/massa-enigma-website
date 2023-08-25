@@ -8,7 +8,7 @@ import { createNoise2D, createNoise3D } from "simplex-noise";
 console.log();
 let time = 0;
 
-const MuteSoundButton = () => {
+const MuteSoundButton = (props) => {
   const barNumber = 12;
   const barChannelGap = 2;
   const width = 150;
@@ -54,11 +54,15 @@ const MuteSoundButton = () => {
     <Button
       className="square square-diag--reverse"
       onClick={() => {
-        setIsMuted(!isMuted);
-        if (isMuted) {
-          if (window.Howler) window.Howler.mute(false);
+        if (props.onClick) {
+          props.onClick();
         } else {
-          if (window.Howler) window.Howler.mute(true);
+          setIsMuted(!isMuted);
+          if (isMuted) {
+            if (window.Howler) window.Howler.mute(false);
+          } else {
+            if (window.Howler) window.Howler.mute(true);
+          }
         }
       }}
     >

@@ -19,6 +19,7 @@ $blue: #e74e4e;
 @import "components/_incoming-message.scss";
 @import "components/_typing-text.scss";
 @import "components/_button.scss";
+@import "components/_no-responsive.scss";
 
 html,
 body,
@@ -150,29 +151,25 @@ canvas {
 }
 
 #r3f-canvas {
-  filter: brightness(0.8);
-}
-
-.no-responsive {
-  display: none;
-}
-
-@media (max-width: 1280px) {
-  .no-responsive {
+  // filter: brightness(0.8);
+  &:before {
+    content: "";
     position: absolute;
-    top: 0;
     left: 0;
-    z-index: 99999999999;
-    background: $background;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 1) 75%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    z-index: 150;
+    mix-blend-mode: overlay;
+    pointer-events: none;
   }
-}
-.no-responsive__content {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
 }
 
 #canvas-glyph {

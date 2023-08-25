@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="131px" height="40px" viewBox="0 0 131 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="161px" height="40px" viewBox="0 0 161 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>ui-incoming-message</title>
     <g id="ui-incoming-message" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <text id="incoming-MESSAGE" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="11" font-weight="400" fill="#DEDEDE">
@@ -14,5 +14,8 @@
             <line x1="4.64285714" y1="4.58333333" x2="0.357142857" y2="0.416666667" id="Path-50"></line>
             <line x1="14" y1="5" x2="9.35714286" y2="0.416666667" id="Path-50" transform="translate(11.5, 2.5) scale(-1, 1) translate(-11.5, -2.5)"></line>
         </g>
+        <text id="at-3:05-PM" opacity="0.387393043" font-family="RobotoMono-Regular, Roboto Mono" font-size="10" font-weight="normal" fill="#DEDEDE">
+            <tspan x="87" y="35">at 3:05 PM</tspan>
+        </text>
     </g>
 </svg>

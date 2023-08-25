@@ -107,12 +107,30 @@
   }
 }
 
+.ui-top-right__time {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: -10px;
+  right: -100px;
+  font-size: 10px;
+}
+
 .ui-top-right__glyph {
   position: absolute;
   width: 150px;
   height: 150px;
   top: 17px;
   right: 10px;
+}
+
+.clickable-glyph {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 17px;
+  right: 10px;
+  z-index: 1;
 }
 
 .ui-top-right__unknown-glyph {
@@ -145,4 +163,12 @@
   font-size: 12px;
   color: #dedede;
   text-align: right;
+}
+
+.ui-center__mouse-infos {
+  position: absolute;
+  font-size: 10px;
+  opacity: 0.5;
+  top: 53px;
+  left: 102px;
 }
