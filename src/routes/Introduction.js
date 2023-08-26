@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../react-components/Button";
-
+import { ReactComponent as DiscordIcon } from "../public/discord-icon.svg";
 const Introduction = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
@@ -36,6 +36,7 @@ const Introduction = (props) => {
           . To participate, seek the answers to the <span>enigmas</span>, and
           share them on{" "}
           <a target="_blank" href="https://discord.gg/nh8rMTda">
+            <DiscordIcon />
             Discord
           </a>{" "}
           to earn the associated reward.

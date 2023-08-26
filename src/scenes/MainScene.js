@@ -74,6 +74,7 @@ const MainScene = (props) => {
   });
 
   const stopSounds = () => {
+    stop0();
     stop1();
     stop2();
     stop3();

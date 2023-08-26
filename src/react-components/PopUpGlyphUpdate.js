@@ -8,6 +8,7 @@ import incomingMessage from "../public/sounds/incoming-message.mp3";
 import TypingText from "../react-components/TypingText";
 
 import useKeyPress from "../hooks/useKeyPress";
+import Button from "./Button";
 
 export const PopUpGlyphUpdate = ({
   words,
@@ -15,25 +16,22 @@ export const PopUpGlyphUpdate = ({
   closeFunction,
   isOpen,
   text,
+  winnerText,
+  currentStep,
 }) => {
   const [hasFinished, setHasFinished] = useState(false);
 
-  useKeyPress("Enter", () => {
-    if (isOpen) {
-      closeFunction();
+  useEffect(() => {
+    if (isOpen == false) {
+      setHasFinished(false);
     }
-  });
+  }, [isOpen]);
 
   return (
     <>
       {createPortal(
         <div
           className={`pop-up-message ${isOpen ? "pop-up-message__open" : ""}`}
-          onClick={() => {
-            if (isOpen) {
-              closeFunction();
-            }
-          }}
         >
           <div className="introduction__content">
             <h1>Infos</h1>
@@ -45,20 +43,21 @@ export const PopUpGlyphUpdate = ({
                     setHasFinished(true);
                   }, 500);
                 }}
-                words="Truc has win the <span>glyph</span> number four. Thanks to him"
-                // words={`Year 3124. Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called the <span>See-Through</span> refuses to bow to this oppression. They seek to resist by developing <span>Glyphs</span> which bring down the layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing. Will you join the resistance? Crypto-related bounties are reserved to welcome new recruits. Julius cesar said: “Men in general are quick to believe that which they wish to be true.”`}
+                words={`The ${currentStep}th glyph has been found. ** Another layer of lies disappears. Congrats to ${winnerText} on finding the glyph !`}
               />
             ) : (
               <></>
             )}
-            <p
-              className={`introduction__content__link ${
-                hasFinished ? "blinking-slow" : ""
-              }`}
+            <Button
+              className={`${
+                hasFinished ? "" : "hidden"
+              } introduction__content__link button--no-margin`}
+              onClick={() => {
+                closeFunction();
+              }}
             >
-              CLICK OR PRESS <span className="space-key">ENTER</span> TO CLOSE
-              THE MESSAGE
-            </p>
+              CLOSE MESSAGE
+            </Button>
           </div>
         </div>,
         document.body

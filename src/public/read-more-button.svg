@@ -14,7 +14,7 @@
     <g id="User-experience" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Step---03" transform="translate(-319.6469, -678)">
             <g id="read-more-button" transform="translate(319.6469, 678)">
-                <path d="M77.4612975,-40.7986079 L77.4612975,67.7306673 L69.8627092,77.4612975 L41.7986079,77.4612975 L41.7986079,-40.7986079 L77.4612975,-40.7986079 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000" transform="translate(59.63, 18.3313) scale(1, -1) rotate(270) translate(-59.63, -18.3313)"></path>
+                <path d="M77.4612975,-40.7986079 L77.4612975,67.7306673 L69.8627092,77.4612975 L41.7986079,77.4612975 L41.7986079,-40.7986079 L77.4612975,-40.7986079 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.81" fill="#000000" transform="translate(59.63, 18.3313) scale(1, -1) rotate(270) translate(-59.63, -18.3313)"></path>
                 <g id="READ-MORE…" fill="#FFFFFF" fill-opacity="1">
                     <use filter="url(#filter-2)" xlink:href="#text-1"></use>
                     <use xlink:href="#text-1"></use>

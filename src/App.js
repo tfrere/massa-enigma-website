@@ -163,7 +163,11 @@ export const App = () => {
     console.log("quests", questsData);
 
     // TANT QUE PERSONNE NE TROUVE ON NE FAIT PAS EVOLUER LA VUE
+
     if (newCurrentStep != maxStep || isFirstLoad) {
+      if (newCurrentStep != maxStep && !isFirstLoad) {
+        setIsPopUpGlyphUpdateOpen(true);
+      }
       setQuests(questsData);
       setCurrentStep(newCurrentStep);
       setMaxStep(newCurrentStep);
@@ -334,6 +338,8 @@ export const App = () => {
       <PopUpGlyphUpdate
         text="A glyph has been found by TFRERE Youpi !"
         isOpen={isPopUpGlyphUpdateOpen}
+        currentStep={currentStep}
+        winnerText={winnerText}
         closeFunction={() => {
           setIsPopUpGlyphUpdateOpen(false);
         }}

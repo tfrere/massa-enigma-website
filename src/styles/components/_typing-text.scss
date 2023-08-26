@@ -10,6 +10,13 @@
   a {
     color: $red;
     font-weight: bold;
+    svg {
+      margin-right: 10px;
+      transform: translateY(2px);
+      #about-and-discord {
+        fill: $red;
+      }
+    }
     // animation: apparition 1s ease-in-out;
   }
   a {

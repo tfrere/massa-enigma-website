@@ -2,9 +2,10 @@ const questsOriginalData = [
   {
     intro:
       "Year 3124. **Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. *Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called <span>Massa</span> refuses to bow to this oppression. **They developped <span>Glyphs</span> which, when seen, bring down layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing.** <i>Will you join the resistance?</i>*** <span>Crypto-related bounties</span> are reserved to welcome new recruits.** Julius cesar said: “Men in general are quick to believe that which they wish to be true“.",
-    clue: "“As Julius Cesar said : 'Men in general are quick to believe that which they wish to be true.'",
+    clue: "As Julius Cesar said : 'Men in general are quick to believe that which they wish to be true.'",
     winner: "tfrere",
     file_url: "",
+    answer: "",
     bot_step_success:
       "Good job *NAME* ! You found the first glyph ! You opened a dangerous door, yet an essential one if what you seek is the truth... We will contact you soon via Discord.",
     bot_step_intro: "The race is on for the first glyph... Good luck !",
@@ -15,6 +16,7 @@ const questsOriginalData = [
     clue: "Can you hear the sound of freedom ? It takes audacity to be able to.",
     winner: "tfrere",
     file_url: "/public/answer.aup3",
+    answer: "",
     bot_step_success:
       "Well done *NAME* ! You found the second glyph ! There is no coming back now... We will contact you soon via Discord.",
     bot_step_intro: "We are now searching for the second glyph... Good luck !",
@@ -25,6 +27,7 @@ const questsOriginalData = [
     clue: "There seems to be a camera watching. A simple click should disable it",
     winner: "tfrere",
     file_url: "",
+    answer: "",
     bot_step_success:
       "Good job *NAME* ! You found the third glyph ! Your name is now carved in stone... We will contact you soon via Discord.",
     bot_step_intro: "The third glyph remains unseen... for now... Good luck !",
@@ -35,6 +38,7 @@ const questsOriginalData = [
     clue: "The answer lies in the glyphs",
     winner: "tfrere",
     file_url: "/public/test.zip",
+    answer: "",
     bot_step_success:
       "Way to go *NAME* ! You found the fourth glyph, and found the courage to watch it. The layers are being brought down by those who choose reality... We will contact you soon via Discord.",
     bot_step_intro: "Find the fourth glyph... Get to the truth... Good luck !",
@@ -45,24 +49,24 @@ const questsOriginalData = [
     clue: "The resistance is with us. Closer than you would expect. Look for Assam",
     winner: "",
     file_url: "",
+    answer: "",
     bot_step_success:
       "Good job *NAME* ! You found the fifth glyph ! The resistance awaits you... We will contact you soon via Discord.",
     bot_step_intro: "The fifth glyph is yet to be found... Good luck !",
   },
-  // {
-  //   intro:
-  //     "A mysterious place unfolds. Whiteness. A Construct. This reminds you of a movie scene from another time. A profound truth emerges: all <span>realities</span> that have been simulated and presented in the eyes of people were nothing but elaborate illusions. None of it was true. In this profound realization, you become a <span>guardian of transparency</span>. Armed with the knowledge brought by deciphering <span>glyphs</span> and dismantling illusions, you are now part of the <span>See-Through</span>, trusted with a mission: bringing all of humanity to the truth.",
-  //   clue: "This place is familiar. What was that movie scene again ?",
-  //   winner: "",
-  //   bot_step_success:
-  //     "Good job *NAME* ! You found the last glyph ! You can finally see the truth for yourself. We will contact you soon via Discord.",
-  //   bot_step_intro: "Seek the truth. Find the last glyph... Good luck !",
-  // },
+  {
+    intro:
+      "A mysterious place unfolds. Whiteness. A Construct. This reminds you of a movie scene from another time. A profound truth emerges: all <span>realities</span> that have been simulated and presented in the eyes of people were nothing but elaborate illusions. None of it was true. In this profound realization, you become a <span>guardian of transparency</span>. Armed with the knowledge brought by deciphering <span>glyphs</span> and dismantling illusions, you are now part of the <span>See-Through</span>, trusted with a mission: bringing all of humanity to the truth.",
+    clue: "This place is familiar. What was that movie scene again ?",
+    winner: "",
+    bot_step_success:
+      "Comes the realization. Who would be powerful enough to create the glyphs ? Only the shapers of reality themselves. Those who claimed to be the resistance are no one but the makers of the layers. This was an invitation all along. An invitation to participate in the creation of a new reality. You have proven that you can decypher and bring down the layers that were created for you. You are worthy. You are now offered to create the layers for others to live within. You are offered a choice. You can choose to join the makers of reality. By doing this, you will become one of them, and earn a reward for yourself. You can still choose to resist. By doing this, you will empower all of those who found the glyphs. The reward will be shared between you and the five glyphs owners. Think well before answering. Then type 'MAKER' or 'RESISTANCE'.",
+    bot_step_answer_maker:
+      "You are now part of the makers. You will be given a reward as well as a unique NFT. We will soon contact you through Discord.",
+    bot_step_answer_resistance:
+      "You are now the founding member of the resistance. You will receive a reward, and the other who found the glyphs will be receiving an additional reward as well. You will also receive a unique NFT.",
+    bot_step_intro: "Seek the truth. Find the last glyph... Good luck !",
+  },
 ];
-
-//  {
-//    intro:
-//      "Comes the realization. Who would be powerful enough to create the glyphs ? Only the shapers of reality themselves. Those who claimed to be the resistance are no one but the makers of the layers. This was an invitation all along. An invitation to participate in the creation of a new reality. You have proven that you can decypher and bring down the layers that were created for you. You are worthy. Now, can you create the layers for others to live within ?",
-//    winner: "",
 
 export default questsOriginalData;
