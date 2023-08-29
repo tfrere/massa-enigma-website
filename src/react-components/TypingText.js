@@ -34,42 +34,9 @@ let splitString = (inputString) => {
   }
   return array;
 };
-
-// const addSpace = (array) => {
-//   let arrayCopy = [...array];
-//   console.log("arrayCopy", arrayCopy);
-//   while (let i = 0; i < array.length; i++) {
-
-//   }
-//   array.map((item, i) => {
-//     if (item[0] == "<a") {
-//       // array.splice(i,0," ");
-//       arrayCopy.splice(i + 1, 0, "");
-//       return;
-//     }
-//   });
-//   return array;
-// };
-
-// function useInterval(callback, delay) {
-//   const savedCallback = useRef();
-
-//   // Remember the latest callback.
-//   useEffect(() => {
-//     savedCallback.current = callback;
-//   }, [callback]);
-
-//   // Set up the interval.
-//   useEffect(() => {
-//     let id = setInterval(() => {
-//       savedCallback.current();
-//     }, delay);
-//     return () => clearInterval(id);
-//   }, [delay]);
-// }
-
 // Utility helper for random number generation
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
 const useRandomInterval = (callback, minDelay, maxDelay) => {
   const timeoutId = React.useRef(null);
   const savedCallback = React.useRef(callback);
@@ -100,7 +67,6 @@ const useRandomInterval = (callback, minDelay, maxDelay) => {
 export const TypingText = ({ words, speed = 50, callback, className }) => {
   let array = splitString(words);
 
-  console.log(array);
   const [charIndex, setCharIndex] = useState(0);
   const [hasStoped, setHasStoped] = useState(false);
   const [currentWords, setCurrentWords] = useState("");
@@ -128,18 +94,10 @@ export const TypingText = ({ words, speed = 50, callback, className }) => {
     speed + 50
   );
 
-  // useEffect(() => {
-  //   window.setTimeout(() => {
-
-  //   }, 10)
-  // }, [])
-
   useEffect(() => {
     if (array[charIndex]) {
-      const newWords = array.slice(0, charIndex).join("");
-
+      const newWords = array.slice(0, charIndex + 1).join("");
       setCurrentWords(newWords);
-
       // si c'est un tag
       if (array[charIndex][0] == "<") {
         playKeyboardSound0();

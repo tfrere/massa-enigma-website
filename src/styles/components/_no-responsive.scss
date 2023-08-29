@@ -2,7 +2,13 @@
   display: none;
 }
 
-@media (max-width: 1280px) or (min-aspect-ratio: 1430/850) {
+@media (max-width: 1280px) {
+  .ui-container__center {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) or (min-aspect-ratio: 16/8) {
   .no-responsive {
     position: absolute;
     top: 0;

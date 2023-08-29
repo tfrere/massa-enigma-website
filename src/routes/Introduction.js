@@ -33,13 +33,20 @@ const Introduction = (props) => {
           <a href="https://massa.net/" target="_blank">
             Massa
           </a>
-          . To participate, seek the answers to the <span>enigmas</span>, and
-          share them on{" "}
+          . <br />
+          <br />
+          To participate, seek the answers to the <span>enigmas</span>, and post
+          them on the associated{" "}
           <a target="_blank" href="https://discord.gg/nh8rMTda">
             <DiscordIcon />
             Discord
           </a>{" "}
-          to earn the associated reward.
+          channel to earn the associated reward.
+          <br />
+          <br /> You are<span> not alone</span> on this journey. Only the first
+          to find the answer to the <span>enigmas</span> will be rewarded.
+          <br />
+          <br /> Good luck.
         </p>
         <Button
           className={`introduction__content__link`}

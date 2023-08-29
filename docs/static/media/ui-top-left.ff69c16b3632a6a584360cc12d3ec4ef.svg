@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="365px" height="363px" viewBox="0 0 365 363" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ui-top-left</title>
+    <g id="ui-top-left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M160.792893,124.5 L168.5,132.207107 L168.5,346.792893 L160.792893,354.5 L9.5,354.5 L9.5,124.5 L160.792893,124.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <path d="M271.5,37.5 L271.5,65.7928932 L263.792893,73.5 L7.5,73.5 L7.5,37.5 L271.5,37.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <text id="User-327" font-family="RobotoMono-Medium, Roboto Mono" font-size="13" font-weight="400" fill="#DEDEDE">
+            <tspan x="18" y="61">USER 327</tspan>
+        </text>
+        <g id="Group-8" transform="translate(20.3074, 138)" fill="#DEDEDE" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400">
+            <text id="RECORDING…">
+                <tspan x="18.6925676" y="10">RECORDING…</tspan>
+            </text>
+        </g>
+        <path d="M159.886029,-128.299861 L162.513607,-125.453278 L162.513607,169.456861 L153.513607,169.456861 L153.513607,-128.299861 L159.886029,-128.299861 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000" transform="translate(158.0136, 20.5785) rotate(-270) translate(-158.0136, -20.5785)"></path>
+        <rect id="Rectangle" fill="#FFFFFF" transform="translate(125.0102, 20.5785) rotate(-270) translate(-125.0102, -20.5785)" x="120.010246" y="-97.4317459" width="10" height="236.020492"></rect>
+        <text id="Server-massa://mainn" opacity="0.570638021" font-family="RobotoMono-Bold, Roboto Mono" font-size="10" font-weight="bold" fill="#DEDEDE">
+            <tspan x="19" y="174.5785">Server </tspan>
+            <tspan x="61.0068359" y="174.5785" font-family="RobotoMono-Regular, Roboto Mono" font-weight="normal">massa://mainnet</tspan>
+            <tspan x="151.021484" y="174.5785"></tspan>
+            <tspan x="19" y="187.5785">Size</tspan>
+            <tspan x="43.0039062" y="187.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"> </tspan>
+            <tspan x="49.0048828" y="187.5785" font-family="RobotoMono-Regular, Roboto Mono" font-weight="normal"></tspan>
+            <tspan x="19" y="200.5785">Framerate</tspan>
+            <tspan x="73.0087891" y="200.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"> </tspan>
+            <tspan x="19" y="213.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"></tspan>
+            <tspan x="19" y="226.5785">Aperture</tspan>
+            <tspan x="67.0078125" y="226.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"> </tspan>
+            <tspan x="73.0087891" y="226.5785" font-family="RobotoMono-Regular, Roboto Mono" font-weight="normal">f5/6</tspan>
+            <tspan x="97.0126953" y="226.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"></tspan>
+            <tspan x="19" y="239.5785">Shutter speed</tspan>
+            <tspan x="97.0126953" y="239.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"> </tspan>
+            <tspan x="103.013672" y="239.5785" font-family="RobotoMono-Regular, Roboto Mono" font-weight="normal">1/60</tspan>
+            <tspan x="127.017578" y="239.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"></tspan>
+            <tspan x="19" y="252.5785">ISO</tspan>
+            <tspan x="37.0029297" y="252.5785" font-family="RobotoMono-Medium, Roboto Mono" font-weight="400"> </tspan>
+            <tspan x="43.0039062" y="252.5785" font-family="RobotoMono-Regular, Roboto Mono" font-weight="normal">200</tspan>
+        </text>
+        <g id="Group-13" transform="translate(9, 84.5785)" fill="#FFFFFF" fill-opacity="0.864018794">
+            <polygon id="Rectangle" transform="translate(4.5, 5) scale(-1, 1) translate(-4.5, -5)" points="0 0 9 0 9 10 2.61910003 10 8.07104383e-13 7.34842834"></polygon>
+            <polygon id="Rectangle" transform="translate(18.5, 5) scale(-1, 1) translate(-18.5, -5)" points="14 0 23 0 23 10 16.6191 10 14 7.34842834"></polygon>
+            <polygon id="Rectangle" transform="translate(32.5, 5) scale(-1, 1) translate(-32.5, -5)" points="28 0 37 0 37 10 30.6191 10 28 7.34842834"></polygon>
+            <polygon id="Rectangle" transform="translate(46.5, 5) scale(-1, 1) translate(-46.5, -5)" points="42 0 51 0 51 10 44.6191 10 42 7.34842834"></polygon>
+            <polygon id="Rectangle" transform="translate(61.5, 5) scale(-1, 1) translate(-61.5, -5)" points="57 0 66 0 66 10 59.6191 10 57 7.34842834"></polygon>
+            <polygon id="Rectangle" opacity="0.483840216" transform="translate(75.5, 5) scale(-1, 1) translate(-75.5, -5)" points="71 0 80 0 80 10 73.6191 10 71 7.34842834"></polygon>
+            <polygon id="Rectangle" opacity="0.483840216" transform="translate(89.5, 5) scale(-1, 1) translate(-89.5, -5)" points="85 0 94 0 94 10 87.6191 10 85 7.34842834"></polygon>
+            <polygon id="Rectangle" opacity="0.483840216" transform="translate(103.5, 5) scale(-1, 1) translate(-103.5, -5)" points="99 0 108 0 108 10 101.6191 10 99 7.34842834"></polygon>
+            <polygon id="Rectangle" opacity="0.483840216" transform="translate(117.5, 5) scale(-1, 1) translate(-117.5, -5)" points="113 0 122 0 122 10 115.6191 10 113 7.34842834"></polygon>
+            <polygon id="Rectangle" opacity="0.483840216" transform="translate(131.5, 5) scale(-1, 1) translate(-131.5, -5)" points="127 2.84217094e-14 136 2.84217094e-14 136 10 129.6191 10 127 7.34842834"></polygon>
+        </g>
+        <text id="01" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="226" y="58">01</tspan>
+        </text>
+        <g id="Group-9" opacity="0.459170387" transform="translate(242, 49.5785)" stroke="#979797">
+            <rect id="Rectangle" x="0.5" y="0.5" width="14" height="9" rx="1"></rect>
+            <polyline id="Path-49" points="14 9 8.76764211 4 7.02063187 5.47194852 5.25104995 4 -2.38775887e-16 9"></polyline>
+            <line x1="4.64285714" y1="4.58333333" x2="0.357142857" y2="0.416666667" id="Path-50"></line>
+            <line x1="14" y1="5" x2="9.35714286" y2="0.416666667" id="Path-50" transform="translate(11.5, 2.5) scale(-1, 1) translate(-11.5, -2.5)"></line>
+        </g>
+        <path d="M11.5883771,18.1869597 L14.1241553,18.1869597 C14.1953141,18.1869597 14.2530124,18.2446604 14.2530124,18.3158166 C14.2530124,18.347112 14.2419026,18.3757085 14.2233997,18.3980839 L12.8939712,20.2725028 L13.9241656,20.2725028 C13.9953244,20.2725028 14.0530227,20.3302035 14.0530227,20.4012096 C14.0530227,20.43939 14.0365539,20.4735416 14.0101084,20.4970908 L10.9805136,23.6432544 C10.931223,23.694384 10.8499742,23.6959089 10.7988,23.6467751 C10.7602671,23.6097684 10.749823,23.5544141 10.7681695,23.5074734 L11.4850696,21.4697177 L10.3818693,21.4697177 C10.310711,21.4697177 10.2530124,21.412017 10.2530124,21.341011 C10.2530124,21.3198083 10.2580588,21.2999747 10.2671348,21.2822927 L11.4692786,18.2685209 C11.4893077,18.218214 11.5375809,18.1875835 11.5885516,18.1875835 L11.5885516,18.187075 L11.5883771,18.1869597 Z" id="Path" fill="#000000" fill-rule="nonzero" opacity="0.352748326"></path>
+    </g>
+</svg>

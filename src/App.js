@@ -22,13 +22,18 @@ import useSound from "use-sound";
 import glitchSound from "./public/sounds/noise.mp3";
 import MainScene from "./scenes/MainScene";
 import Glyph from "./components/Glyph";
+import Fireflies from "./components/Fireflies";
+import Glyph3d from "./components/Glyph3d";
 import IncomingMessage from "./react-components/IncomingMessage";
 import PopUpAbout from "./react-components/PopUpAbout";
+import PopUpEnd from "./react-components/PopUpEnd";
+import TopLeftInfos from "./react-components/TopLeftInfos";
 import PopUpGlyphUpdate from "./react-components/PopUpGlyphUpdate";
+import TypingText from "./react-components/TypingText";
 import Button from "./react-components/Button";
 import MuteSoundButton from "./react-components/MuteSoundButton";
 import MousePosition from "./react-components/MousePosition";
-import Time from "./react-components/Time";
+import incomingMessage from "./public/sounds/incoming-message-2.mp3";
 
 import useCookie from "react-use-cookie";
 
@@ -55,7 +60,7 @@ import questsOriginalData from "./quests.js";
 const IS_PROD = false;
 
 export const App = () => {
-  const debugMode = true;
+  const debugMode = false;
   const htmlPortalRef = useRef();
   const [quests, setQuests] = useState(IS_PROD ? [] : questsOriginalData);
 
@@ -63,18 +68,15 @@ export const App = () => {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [maxStep, setMaxStep] = useState(6);
   const [isPopUpAboutOpen, setIsPopUpAboutOpen] = useState(false);
+  const [isPopUpEndOpen, setIsPopUpEndOpen] = useState(false);
   const [isIncomingMessageOpen, setIsIncomingMessageOpen] = useState(false);
+  const [isIncomingMessageVisible, setIsIncomingMessageVisible] =
+    useState(false);
   const [isPopUpGlyphUpdateOpen, setIsPopUpGlyphUpdateOpen] = useState(false);
   const [clueText, setClueText] = useState("");
   const [introText, setIntroText] = useState("");
   const [winnerText, setWinnerText] = useState("");
   const [isChangingStep, setIsChangingStep] = useState(0);
-  // const [hasUserBeenOnboarded, setHasUserBeenOnboarded] = useCookie(
-  //   "hasUserBeenOnboarded",
-  //   true
-  // );
-
-  console.log("app");
 
   let postProcessingValues = [
     {
@@ -108,6 +110,12 @@ export const App = () => {
     interrupt: true,
   });
 
+  const [playIncomingMessage] = useSound(incomingMessage, {
+    playbackRate: 1,
+    volume: 0.05,
+    interrupt: true,
+  });
+
   const changeStep = (step) => {
     setIsChangingStep(true);
     soundPlay();
@@ -120,12 +128,37 @@ export const App = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < maxStep && !isChangingStep) {
+    // console.log(
+    //   isIncomingMessageOpen,
+    //   isPopUpAboutOpen,
+    //   isPopUpGlyphUpdateOpen
+    // );
+    if (
+      currentStep < maxStep &&
+      !isChangingStep &&
+      !isIncomingMessageOpen &&
+      !isPopUpAboutOpen &&
+      !isPopUpGlyphUpdateOpen
+    ) {
+      closeAllPopUps();
       changeStep(currentStep + 1);
     }
   };
   const prevStep = () => {
-    if (currentStep > 0 && !isChangingStep) {
+    console.log(
+      currentStep,
+      isIncomingMessageOpen,
+      isPopUpAboutOpen,
+      isPopUpGlyphUpdateOpen
+    );
+    if (
+      currentStep > 0 &&
+      !isChangingStep &&
+      !isIncomingMessageOpen &&
+      !isPopUpAboutOpen &&
+      !isPopUpGlyphUpdateOpen
+    ) {
+      closeAllPopUps();
       changeStep(currentStep - 1);
     }
   };
@@ -136,6 +169,12 @@ export const App = () => {
   useKeyPress("ArrowLeft", () => {
     prevStep();
   });
+
+  const closeAllPopUps = () => {
+    setIsIncomingMessageOpen(false);
+    setIsPopUpAboutOpen(false);
+    setIsPopUpGlyphUpdateOpen(false);
+  };
 
   const getData = async () => {
     let questsData;
@@ -159,21 +198,29 @@ export const App = () => {
 
     const newCurrentStep = questsData.length - 1;
 
-    console.log("newCurrentStep", newCurrentStep);
-    console.log("quests", questsData);
-
-    // TANT QUE PERSONNE NE TROUVE ON NE FAIT PAS EVOLUER LA VUE
+    // console.log("newCurrentStep", newCurrentStep);
+    // console.log("quests", questsData);
 
     if (newCurrentStep != maxStep || isFirstLoad) {
+      closeAllPopUps();
       if (newCurrentStep != maxStep && !isFirstLoad) {
         setIsPopUpGlyphUpdateOpen(true);
+      } else if (isFirstLoad) {
+        if (!isThisTheEnd) {
+          playIncomingMessage();
+        }
+        window.setTimeout(() => {
+          setIsIncomingMessageOpen(true);
+          window.setTimeout(() => {
+            setIsIncomingMessageVisible(true);
+          }, 1000);
+        }, 2000);
       }
+
       setQuests(questsData);
       setCurrentStep(newCurrentStep);
       setMaxStep(newCurrentStep);
       changeStep(newCurrentStep);
-      // setClueText(questsData[newCurrentStep].clue);
-      // setIntroText(questsData[newCurrentStep].intro);
     }
   };
 
@@ -189,6 +236,11 @@ export const App = () => {
       setClueText(quests[currentStep].clue);
       setIntroText(quests[currentStep].intro);
       setWinnerText(quests[currentStep].winner);
+    }
+    if (isThisTheEnd && isFirstLoad) {
+      window.setTimeout(() => {
+        setIsPopUpEndOpen(true);
+      }, 1500);
     }
   }, [currentStep, quests]);
 
@@ -212,37 +264,40 @@ export const App = () => {
         <div className="ui-container__center">
           <MousePosition />
           <UiCenter />
-          {!winnerText ? (
+          {currentStep === maxStep ? (
             <UiScan className="ui-container__center__searching blinking-slow" />
           ) : null}
         </div>
         <div className="ui-top-left">
+          <TopLeftInfos />
           <UiTopLeft />
         </div>
         <div className="ui-top-right">
-          <Time />
-          {winnerText ? (
-            <>
-              {currentStep == 3 ? (
-                <div
-                  className="clickable-glyph"
-                  onClick={() => {
-                    window.open(quests[currentStep].file_url, "_blank");
-                  }}
-                ></div>
-              ) : (
-                ""
-              )}
-              <Glyph currentStep={currentStep} />
-              <div className="ui-top-right__winner">found by {winnerText}</div>
-            </>
+          {currentStep == 3 ? (
+            <div
+              className="clickable-glyph"
+              onClick={() => {
+                window.open(quests[currentStep].file_url, "_blank");
+              }}
+            ></div>
           ) : (
-            <>
-              <UiTopRightNotFound className="ui-top-right__unknown-glyph blinking-slow" />
-              {/* <div className="ui-top-right__unknown-glyph">?</div>
-              <UiScan className="ui-top-right__scan blinking-slow" /> */}
-            </>
+            ""
           )}
+          <>
+            {currentStep == 0 && !quests[currentStep].winner ? (
+              <>
+                <UiTopRightNotFound className="ui-top-right__unknown-glyph blinking-slow" />
+                <div className="ui-top-right__winner">unknown...</div>
+              </>
+            ) : (
+              <>
+                <Glyph className="ui-top-right__glyph" step={maxStep - 1} />
+                <div className="ui-top-right__winner">
+                  found by <span>{quests[maxStep - 1]?.winner}</span>
+                </div>
+              </>
+            )}
+          </>
           <span className="ui-top-right__current-step">0{currentStep}</span>
           <span
             className={`ui-top-right__current-step-next ${
@@ -269,79 +324,101 @@ export const App = () => {
             <StepArrow />
           </span>
           <span className="ui-top-right__quest-current-step">
-            Founded glyphs ({maxStep}/5)
+            {maxStep}/6 found glyphs
           </span>
-
           <UiTopRight />
         </div>
         <div className="ui-center-left">
-          <IncomingMessage
-            clueText={clueText}
-            introText={introText}
-            currentStep={currentStep}
-            isFinalStep={winnerText === ""}
-            isChangingStep={isChangingStep}
-            isOpen={isIncomingMessageOpen}
-          />
+          {!isThisTheEnd ? (
+            <IncomingMessage
+              clueText={clueText}
+              introText={introText}
+              currentStep={currentStep}
+              isFinalStep={winnerText === ""}
+              isHidden={!isIncomingMessageVisible}
+              isOpen={isIncomingMessageOpen}
+              openFunction={() => {
+                setIsIncomingMessageOpen(true);
+              }}
+              closeFunction={() => {
+                setIsIncomingMessageOpen(false);
+              }}
+            />
+          ) : null}
         </div>
-        <div className="ui-bottom-left">
-          <UiBottomLeft />
-        </div>
-        <div className="ui-bottom-right">
-          <Button
-            className="square square-diag"
-            onClick={() => {
-              // changeRoute();
-              setIsPopUpAboutOpen(true);
-            }}
-          >
-            About this game
-          </Button>
-          <PopUpAbout
-            text="<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and <a href='https://obvious-art.com/' target='_blank'>Obvious</a>. The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a>.Rewards will be discovered upon resolution of the riddles, and include discounts for <span>Massa ICO</span> as well as <span>Obvious  NFT artwork</span>."
-            isOpen={isPopUpAboutOpen}
-            closeFunction={() => {
-              setIsPopUpAboutOpen(false);
-            }}
-          />
+      </div>
+      <div className="ui-bottom-left">
+        <UiBottomLeft />
+      </div>
+
+      <div className="ui-bottom-right">
+        <Button
+          className="square square-diag"
+          onClick={() => {
+            // changeRoute();
+            setIsPopUpAboutOpen(true);
+          }}
+        >
+          About this game
+        </Button>
+        <PopUpAbout
+          text="<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and €€<a href='https://obvious-art.com/' target='_blank'>Obvious</a>€€** The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a>.**Rewards will be discovered upon resolution of the riddles, and include discounts for <span>Massa ICO</span> as well as <span>Obvious  NFT artwork</span>."
+          isOpen={isPopUpAboutOpen}
+          closeFunction={() => {
+            setIsPopUpAboutOpen(false);
+          }}
+        />
+        <Button
+          className="square square-diag--reverse"
+          onClick={() => {
+            window.open("https://discord.gg/nh8rMTda", "_blank");
+          }}
+        >
+          <DiscordIcon />
+        </Button>
+
+        {currentStep == 2 ? (
           <Button
             className="square square-diag--reverse"
             onClick={() => {
-              window.open("https://discord.gg/nh8rMTda", "_blank");
+              window.open("https://www.instagram.com/obvious_art/", "_blank");
             }}
           >
-            <DiscordIcon />
+            <InstagramIcon />
           </Button>
+        ) : null}
 
-          {currentStep == 2 ? (
-            <Button
-              className="square square-diag--reverse"
-              onClick={() => {
-                window.open("https://www.instagram.com/obvious_art/", "_blank");
-              }}
-            >
-              <InstagramIcon />
-            </Button>
-          ) : null}
-
-          <MuteSoundButton
-            onClick={
-              currentStep == 1
-                ? () => {
-                    window.open(quests[currentStep].file_url, "_blank");
-                  }
-                : null
-            }
-          />
-        </div>
+        <MuteSoundButton
+          onClick={
+            currentStep == 1
+              ? () => {
+                  window.open(quests[currentStep].file_url, "_blank");
+                }
+              : null
+          }
+        />
       </div>
+      {isThisTheEnd ? (
+        <>
+          <PopUpEnd
+            isOpen={isPopUpEndOpen}
+            closeFunction={() => {
+              setIsIncomingMessageOpen(false);
+              setIsPopUpEndOpen(false);
+            }}
+            words={`All the glyphs have been found. ** Thank <span>you</span> for taking part in this journey.* You will be the ones writing the rest of the story. ** <a href='https://massa.net/' target='_blank'>Join Massa</a> now.`}
+          />
+        </>
+      ) : null}
       <PopUpGlyphUpdate
-        text="A glyph has been found by TFRERE Youpi !"
         isOpen={isPopUpGlyphUpdateOpen}
         currentStep={currentStep}
-        winnerText={winnerText}
+        // winnerText={winnerText}
         closeFunction={() => {
           setIsPopUpGlyphUpdateOpen(false);
+          window.setTimeout(() => {
+            setIsIncomingMessageOpen(true);
+          }, 1000);
         }}
       />
       <div id="r3f-canvas" className="screen">
@@ -371,6 +448,20 @@ export const App = () => {
               </>
             ) : null}
           </EffectComposer>
+          {isThisTheEnd ? (
+            <>
+              <Fireflies
+                color="#FF0000"
+                count={20}
+                scale={[0.03, 0.03, 0.03]}
+                position={[0.1, -0.5, -1]}
+              />
+              <Glyph3d
+                position={[0.1, -0.5, -1]}
+                className="final-center-glyph"
+              />
+            </>
+          ) : null}
           <MainScene
             debugMode={debugMode}
             htmlPortalRef={htmlPortalRef}

@@ -10,13 +10,15 @@ import TypingText from "../react-components/TypingText";
 import useKeyPress from "../hooks/useKeyPress";
 import Button from "./Button";
 
+import Glyph from "../components/Glyph";
+
 export const PopUpGlyphUpdate = ({
   words,
   speed = 50,
   closeFunction,
   isOpen,
   text,
-  winnerText,
+  // winnerText,
   currentStep,
 }) => {
   const [hasFinished, setHasFinished] = useState(false);
@@ -31,19 +33,26 @@ export const PopUpGlyphUpdate = ({
     <>
       {createPortal(
         <div
-          className={`pop-up-message ${isOpen ? "pop-up-message__open" : ""}`}
+          className={`pop-up-message introduction--center ${
+            isOpen ? "pop-up-message__open" : ""
+          }`}
         >
-          <div className="introduction__content">
-            <h1>Infos</h1>
+          <div className="introduction__content ">
+            <Glyph
+              className="popup-glyph"
+              size={150}
+              currentStep={currentStep}
+            />
             {isOpen ? (
               <TypingText
                 speed={10}
+                className="typing-text--center"
                 callback={() => {
                   window.setTimeout(() => {
                     setHasFinished(true);
                   }, 500);
                 }}
-                words={`The ${currentStep}th glyph has been found. ** Another layer of lies disappears. Congrats to ${winnerText} on finding the glyph !`}
+                words={`The <span>${currentStep}th glyph</span> has been found. ** Another layer of lies disappears. *Congrats to him on finding the glyph !`}
               />
             ) : (
               <></>

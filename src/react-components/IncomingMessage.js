@@ -4,7 +4,6 @@ import useSound from "use-sound";
 import { ReactComponent as UiIncomingMessage } from "../public/ui-incoming-message.svg";
 import { ReactComponent as ReadMoreButton } from "../public/read-more-button.svg";
 
-import incomingMessage from "../public/sounds/incoming-message-2.mp3";
 import clickSound from "../public/sounds/switch-on.mp3";
 
 import Button from "./Button";
@@ -17,14 +16,12 @@ export const IncomingMessage = ({
   introText,
   currentStep,
   isFinalStep,
-  isChangingStep,
+  isHidden,
+  closeFunction,
+  openFunction,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [playIncomingMessage] = useSound(incomingMessage, {
-    playbackRate: 1,
-    volume: 0.05,
-    interrupt: true,
-  });
+  const [isModalOpen, setIsModalOpen] = useState(isOpen);
+
   const [playHoverSound] = useSound(clickSound, {
     playbackRate: 1,
     volume: 0.02,
@@ -32,12 +29,14 @@ export const IncomingMessage = ({
   });
 
   const classNames = `incoming-message ${
-    isModalOpen || isChangingStep ? "incoming-message--hidden" : ""
+    isModalOpen || isHidden ? "incoming-message--hidden" : ""
   }`;
 
-  // if (isFinalStep) {
-  //   playIncomingMessage();
-  // }
+  useEffect(() => {
+    window.setTimeout(() => {
+      setIsModalOpen(isOpen);
+    }, 500);
+  }, [isOpen]);
 
   return (
     <div className={classNames}>
@@ -47,6 +46,7 @@ export const IncomingMessage = ({
         isOpen={isModalOpen}
         closeFunction={() => {
           setIsModalOpen(false);
+          closeFunction();
         }}
       />
       <div className="incoming-message__words">{clueText}</div>
@@ -60,6 +60,7 @@ export const IncomingMessage = ({
         }}
         onClick={() => {
           setIsModalOpen(true);
+          openFunction();
         }}
       />
     </div>

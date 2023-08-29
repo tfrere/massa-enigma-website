@@ -41,8 +41,7 @@ export const PopUpAbout = ({
                 callback={() => {
                   setHasFinished(true);
                 }}
-                words="<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and €€<a href='https://obvious-art.com/' target='_blank'>Obvious</a>€€** The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a>.**Rewards will be discovered upon resolution of the riddles, and include discounts for <span>Massa ICO</span> as well as <span>Obvious  NFT artwork</span>."
-                // words={`Year 3124. Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called the <span>See-Through</span> refuses to bow to this oppression. They seek to resist by developing <span>Glyphs</span> which bring down the layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing. Will you join the resistance? Crypto-related bounties are reserved to welcome new recruits. Julius cesar said: “Men in general are quick to believe that which they wish to be true.”`}
+                words={words}
               />
             ) : (
               <></>

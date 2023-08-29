@@ -13,10 +13,10 @@ var removeBlack = function (data, imageData, bufferctx) {
 const changeGlyph = (config, step) => {
   switch (step) {
     case 0:
-      // M
-      config.angle = 24;
-      config.skewAngle = 6;
-      config.poly = 3;
+      // S
+      config.angle = 142;
+      config.skewAngle = 12;
+      config.poly = 1;
       break;
     case 1:
       // A
@@ -25,22 +25,22 @@ const changeGlyph = (config, step) => {
       config.poly = 2;
       break;
     case 2:
-      // S
-      config.angle = 142;
-      config.skewAngle = 12;
-      config.poly = 1;
+      // M
+      config.angle = 24;
+      config.skewAngle = 6;
+      config.poly = 3;
       break;
     case 3:
       // S
-      config.angle = 142;
-      config.skewAngle = 12;
-      config.poly = 3;
+      config.angle = 37;
+      config.skewAngle = 86;
+      config.poly = 4;
       break;
     case 4:
       // A
-      config.angle = 24;
-      config.skewAngle = 4.5;
-      config.poly = 4;
+      config.angle = 37;
+      config.skewAngle = 86;
+      config.poly = 5;
       break;
     case 5:
       // S
@@ -52,15 +52,15 @@ const changeGlyph = (config, step) => {
   document.fract.set(config);
 };
 
-export default function Glyph(props) {
+export default function Glyph({ step, className, size = 150 }) {
   const canvasRef = useRef();
 
   const loop = () => {
     if (canvasRef.current) {
       var canvas = canvasRef.current;
       var buffer = document.createElement("canvas");
-      const width = 150;
-      const height = 150;
+      const width = size;
+      const height = size;
       canvas.width = width;
       canvas.height = height;
       var bufferctx = document.getElementById("canvas-glyph").getContext("2d");
@@ -75,8 +75,8 @@ export default function Glyph(props) {
   };
 
   useEffect(() => {
-    changeGlyph(config, props.currentStep);
-  }, [props.currentStep]);
+    changeGlyph(config, step);
+  }, [step]);
 
   useEffect(() => {
     let raf = window.requestAnimationFrame(loop);
@@ -86,5 +86,5 @@ export default function Glyph(props) {
     };
   }, []);
 
-  return <canvas className="ui-top-right__glyph" ref={canvasRef} />;
+  return <canvas className={className} ref={canvasRef} />;
 }

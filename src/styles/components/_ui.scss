@@ -38,6 +38,65 @@
   user-select: none;
 }
 
+.ui-top-left__infos {
+  p {
+    opacity: 0.74;
+    font-family: RobotoMono-Regular;
+    font-size: 10px;
+    color: #dedede;
+  }
+}
+
+.ui-top-left__infos__fps {
+  position: absolute;
+  top: 180px;
+  left: 80px;
+}
+
+.ui-top-left__infos__size {
+  position: absolute;
+  top: 167px;
+  left: 50px;
+}
+
+.ui-top-left__infos__date {
+  position: absolute;
+  top: -11px;
+  left: 217px;
+}
+
+.ui-top-left__infos__time {
+  position: absolute;
+  top: -11px;
+  left: 6px;
+}
+
+.ui-top-left__infos__cam {
+  position: absolute;
+  top: 139px;
+  left: 19px;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background: red;
+}
+
+.ui-top-left__infos__hash {
+  position: absolute;
+  top: 260px;
+  left: 19px;
+  width: 140px;
+  line-break: anywhere;
+  display: block;
+  user-select: all;
+  pointer-events: all;
+  z-index: 9999999999999;
+  span {
+    font-weight: bold;
+    user-select: none;
+  }
+}
+
 .ui-top-right {
   position: absolute;
   top: 40px;
@@ -56,12 +115,23 @@
   right: 20px;
   font-size: 10px;
   text-align: right;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 13px;
+  line-break: anywhere;
+  color: rgba(255, 255, 255, 0.5);
+  span {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+  }
 }
 
 .ui-bottom-left {
   position: absolute;
   bottom: 40px;
   left: 40px;
+  z-index: 999999;
 }
 
 .ui-bottom-right {
@@ -69,12 +139,13 @@
   bottom: 40px;
   right: 40px;
   display: flex;
+  z-index: 999;
 }
 
 .ui-top-right__current-step {
   position: absolute;
-  top: 230px;
-  right: 31px;
+  top: 230px - 22px;
+  right: 31px + 2px;
   font-size: 3rem;
   width: 70px;
   text-align: center;
@@ -82,15 +153,15 @@
 
 .ui-top-right__current-step-next {
   position: absolute;
-  top: 254px - 20px;
-  right: 16px - 20px;
+  top: 254px - 22px - 20px;
+  right: 16px + 2px - 20px;
   padding: 20px;
 }
 
 .ui-top-right__current-step-prev {
   position: absolute;
-  top: 255px - 20px;
-  right: 108px - 20px;
+  top: 255px - 22px - 20px;
+  right: 108px + 2px - 20px;
   padding: 20px;
   svg {
     transform: rotate(180deg);
@@ -105,15 +176,6 @@
     cursor: pointer;
     opacity: 1;
   }
-}
-
-.ui-top-right__time {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  top: -10px;
-  right: -100px;
-  font-size: 10px;
 }
 
 .ui-top-right__glyph {
@@ -155,9 +217,8 @@
 .ui-top-right__quest-current-step {
   position: absolute;
   width: 150px;
-  /* height: 80px; */
-  top: 420px;
-  right: 5px;
+  top: 405px;
+  right: 13px;
   opacity: 0.74;
   font-family: RobotoMono-Regular;
   font-size: 12px;
@@ -171,4 +232,15 @@
   opacity: 0.5;
   top: 53px;
   left: 102px;
+}
+
+.final-center-glyph {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999999;
+  width: 100px;
+  height: 100px;
 }

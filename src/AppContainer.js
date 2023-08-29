@@ -19,6 +19,7 @@ import ImageStep3 from "./public/videos/STEP_3.mp4";
 import ImageStep4 from "./public/videos/STEP_4.mp4";
 import ImageStep5 from "./public/videos/STEP_5.mp4";
 import ImageStep6 from "./public/videos/STEP_6.mp4";
+import ImageStep7 from "./public/videos/STEP_7.mp4";
 
 const listDataToFetch = [
   ImageStep1,
@@ -27,44 +28,8 @@ const listDataToFetch = [
   ImageStep4,
   ImageStep5,
   ImageStep6,
+  ImageStep7,
 ];
-
-// function prefetch_file(
-//   url,
-//   fetched_callback,
-//   progress_callback,
-//   error_callback
-// ) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open("GET", url, true);
-//   xhr.responseType = "blob";
-
-//   xhr.addEventListener(
-//     "load",
-//     function () {
-//       if (xhr.status === 200) {
-//         var URL = window.URL || window.webkitURL;
-//         var blob_url = URL.createObjectURL(xhr.response);
-//         fetched_callback(blob_url);
-//       } else {
-//         error_callback();
-//       }
-//     },
-//     false
-//   );
-
-//   var prev_pc = 0;
-//   xhr.addEventListener("progress", function (event) {
-//     if (event.lengthComputable) {
-//       var pc = Math.round((event.loaded / event.total) * 100);
-//       if (pc != prev_pc) {
-//         prev_pc = pc;
-//         progress_callback(pc);
-//       }
-//     }
-//   });
-//   xhr.send();
-// }
 
 const fetchVideo = async (url) => {
   const res = await fetch(url);
@@ -85,7 +50,7 @@ const AppContainer = (props) => {
 
     allPromise
       .then((values) => {
-        console.log(values); // [resolvedValue1, resolvedValue2]
+        // console.log(values); // [resolvedValue1, resolvedValue2]
         window.setTimeout(() => {
           setIsHiding(true);
           window.setTimeout(() => {

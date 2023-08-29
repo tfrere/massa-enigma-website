@@ -2,6 +2,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import VideoTexturedPlane from "../components/VideoTexturedPlane";
+import SkyBox from "../components/Skybox";
 
 import ImageStep1 from "../public/videos/STEP_1.mp4";
 import ImageStep2 from "../public/videos/STEP_2.mp4";
@@ -9,13 +10,14 @@ import ImageStep3 from "../public/videos/STEP_3.mp4";
 import ImageStep4 from "../public/videos/STEP_4.mp4";
 import ImageStep5 from "../public/videos/STEP_5.mp4";
 import ImageStep6 from "../public/videos/STEP_6.mp4";
+import ImageStep7 from "../public/videos/STEP_7.mp4";
 
-import SoundStep0 from "../public/sounds/step-0.mp3";
 import SoundStep1 from "../public/sounds/step-1.mp3";
 import SoundStep2 from "../public/sounds/step-2.mp3";
 import SoundStep3 from "../public/sounds/step-3.mp3";
 import SoundStep4 from "../public/sounds/step-4.mp3";
 import SoundStep5 from "../public/sounds/step-5.mp3";
+import SoundStep6 from "../public/sounds/step-6.mp3";
 
 import useSound from "use-sound";
 
@@ -30,13 +32,6 @@ const MainScene = (props) => {
   const [x, setX] = useState(0);
 
   const textureRatio = 1.5;
-
-  const [playStep0Sound, { stop: stop0 }] = useSound(SoundStep0, {
-    playbackRate: 1.2,
-    volume: 0.05,
-    interrupt: true,
-    loop: true,
-  });
 
   const [playStep1Sound, { stop: stop1 }] = useSound(SoundStep1, {
     playbackRate: 1.2,
@@ -66,7 +61,14 @@ const MainScene = (props) => {
     loop: true,
   });
 
-  const [playStep5Sound, { stop: stop5 }] = useSound(SoundStep5, {
+  const [playStep5Sound, { stop: stop5 }] = useSound(SoundStep6, {
+    playbackRate: 1.2,
+    volume: 0.05,
+    interrupt: true,
+    loop: true,
+  });
+
+  const [playStep6Sound, { stop: stop6 }] = useSound(SoundStep6, {
     playbackRate: 1.2,
     volume: 0.05,
     interrupt: true,
@@ -74,12 +76,12 @@ const MainScene = (props) => {
   });
 
   const stopSounds = () => {
-    stop0();
     stop1();
     stop2();
     stop3();
     stop4();
     stop5();
+    stop6();
   };
 
   useFrame(({ mouse, clock }) => {
@@ -110,32 +112,37 @@ const MainScene = (props) => {
     case 0:
       backgroundVideo = ImageStep1;
       stopSounds();
-      playStep0Sound();
+      playStep1Sound();
       break;
     case 1:
       backgroundVideo = ImageStep2;
       stopSounds();
-      playStep1Sound();
+      playStep2Sound();
       break;
     case 2:
       backgroundVideo = ImageStep3;
       stopSounds();
-      playStep2Sound();
+      playStep3Sound();
       break;
     case 3:
       backgroundVideo = ImageStep4;
       stopSounds();
-      playStep3Sound();
+      playStep4Sound();
       break;
     case 4:
       backgroundVideo = ImageStep5;
       stopSounds();
-      playStep4Sound();
+      playStep5Sound();
       break;
     case 5:
       backgroundVideo = ImageStep6;
       stopSounds();
-      playStep5Sound();
+      playStep6Sound();
+      break;
+    case 6:
+      backgroundVideo = ImageStep7;
+      stopSounds();
+      playStep6Sound();
       break;
   }
 
@@ -144,9 +151,9 @@ const MainScene = (props) => {
       <VideoTexturedPlane
         imageUrl={backgroundVideo}
         scale={[
-          (16 / 1.4) * textureRatio,
-          (10 / 1.4) * textureRatio,
-          (10 / 1.4) * textureRatio,
+          (16 / 1.1) * textureRatio,
+          (8 / 1.1) * textureRatio,
+          (8 / 1.1) * textureRatio,
         ]}
         rotation={[0, 0, 0]}
         position={[0, 0, -1.2]}
