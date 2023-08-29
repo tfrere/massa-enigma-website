@@ -41,7 +41,7 @@ export const PopUpAbout = ({
                 callback={() => {
                   setHasFinished(true);
                 }}
-                words={words}
+                words={text}
               />
             ) : (
               <></>

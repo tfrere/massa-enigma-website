@@ -12,15 +12,15 @@ import Button from "./Button";
 
 import Glyph from "../components/Glyph";
 
-export const PopUpGlyphUpdate = ({
+export function PopUpGlyphUpdate({
   words,
   speed = 50,
   closeFunction,
   isOpen,
   text,
-  // winnerText,
+  winnerText,
   currentStep,
-}) => {
+}) {
   const [hasFinished, setHasFinished] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const PopUpGlyphUpdate = ({
                     setHasFinished(true);
                   }, 500);
                 }}
-                words={`The <span>${currentStep}th glyph</span> has been found. ** Another layer of lies disappears. *Congrats to him on finding the glyph !`}
+                words={`The <span>${currentStep}th glyph</span> has been found. ** Another layer of lies disappears. *Congrats to ${winnerText} on finding the glyph !`}
               />
             ) : (
               <></>
@@ -73,7 +73,7 @@ export const PopUpGlyphUpdate = ({
       )}
     </>
   );
-};
+}
 
 export default PopUpGlyphUpdate;
 

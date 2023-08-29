@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/massa-enigma-website/static/css/main.7a5c0480.css",
-    "main.js": "/massa-enigma-website/static/js/main.e0efc2e2.js",
+    "main.css": "/massa-enigma-website/static/css/main.9a639a0a.css",
+    "main.js": "/massa-enigma-website/static/js/main.d536db88.js",
     "static/js/510.336e55b9.chunk.js": "/massa-enigma-website/static/js/510.336e55b9.chunk.js",
     "static/media/STEP_1.mp4": "/massa-enigma-website/static/media/STEP_1.6b104eea6f3f70cd3d67.mp4",
     "static/media/STEP_2.mp4": "/massa-enigma-website/static/media/STEP_2.45f04231a562e99e121a.mp4",
@@ -30,10 +30,10 @@
     "static/media/loading.svg": "/massa-enigma-website/static/media/loading.516ca3be76763a6a312a992b52c14b56.svg",
     "static/media/instagram-icon.svg": "/massa-enigma-website/static/media/instagram-icon.8ef0462129da7cf5b78f2fe586419ec5.svg",
     "index.html": "/massa-enigma-website/index.html",
-    "static/media/ui-center-scan.svg": "/massa-enigma-website/static/media/ui-center-scan.84c6f4e5d71a429741ecf68c7dbbdabe.svg",
     "static/media/loading-logo.svg": "/massa-enigma-website/static/media/loading-logo.13d9ca0c6465aa463273260b5590ce2c.svg",
     "static/media/read-more-button.svg": "/massa-enigma-website/static/media/read-more-button.6d0d9d3ad787786770062a669f618b41.svg",
     "static/media/switch-on.mp3": "/massa-enigma-website/static/media/switch-on.88d10ee7414a1fcc5a37.mp3",
+    "static/media/ui-center-scan.svg": "/massa-enigma-website/static/media/ui-center-scan.8654995907e414c794d2b1e92ffa3146.svg",
     "static/media/ui-incoming-message.svg": "/massa-enigma-website/static/media/ui-incoming-message.b4b4e8b3b4d8cbb54f91e35560b81261.svg",
     "static/media/sound-icon.svg": "/massa-enigma-website/static/media/sound-icon.18d0bf08baac94d8d986fa46d289855c.svg",
     "static/media/external-link.svg": "/massa-enigma-website/static/media/external-link.ba09e8964afcb06090c6.svg",
@@ -42,7 +42,7 @@
     "static/media/ui-top-right-not-found.svg": "/massa-enigma-website/static/media/ui-top-right-not-found.97ab863083991db7c87d389f8f7c11e5.svg"
   },
   "entrypoints": [
-    "static/css/main.7a5c0480.css",
-    "static/js/main.e0efc2e2.js"
+    "static/css/main.9a639a0a.css",
+    "static/js/main.d536db88.js"
   ]
 }

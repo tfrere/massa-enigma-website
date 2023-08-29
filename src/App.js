@@ -293,7 +293,7 @@ export const App = () => {
               <>
                 <Glyph className="ui-top-right__glyph" step={maxStep - 1} />
                 <div className="ui-top-right__winner">
-                  found by <span>{quests[maxStep - 1]?.winner}</span>
+                  found by <span>{quests[maxStep]?.winner}</span>
                 </div>
               </>
             )}
@@ -413,7 +413,7 @@ export const App = () => {
       <PopUpGlyphUpdate
         isOpen={isPopUpGlyphUpdateOpen}
         currentStep={currentStep}
-        // winnerText={winnerText}
+        winnerText={quests[currentStep].winner}
         closeFunction={() => {
           setIsPopUpGlyphUpdateOpen(false);
           window.setTimeout(() => {
