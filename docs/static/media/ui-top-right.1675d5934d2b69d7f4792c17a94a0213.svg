@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="376px" height="465px" viewBox="0 0 376 465" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ui-top-right</title>
+    <g id="ui-top-right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M369.5,16.5 L369.5,167.5 L228.207107,167.5 L212.5,151.792893 L212.5,16.5 L369.5,16.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <path d="M246.802632,181.5 L369.5,181.5 L369.5,299.5 L262.509738,299.5 L246.802632,283.792893 L246.802632,181.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <path d="M369.5,344.5 L369.5,431.5 L152.207107,431.5 L144.5,423.792893 L144.5,352.207107 L152.207107,344.5 L369.5,344.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <text id="QUEST-INFORMATIONS" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="252.982422" y="361.5785">QUEST INFORMATIONS</tspan>
+        </text>
+        <text id="Find-a-way-out" font-family="RobotoMono-Medium, Roboto Mono" font-size="22" font-weight="400" fill="#DEDEDE">
+            <tspan x="177.169922" y="400.5785">Find a way out</tspan>
+        </text>
+        <g id="Group-4" transform="translate(179, 81.5785) scale(-1, 1) translate(-179, -81.5785)translate(158, 75.5785)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" points="0 12 1.97530864 12 1.97530864 10.5 6.02469136 10.5 6.02469136 12 8 12 8 9 0 9"></polygon>
+            <polygon id="Path" points="16 12 17.9771863 12 17.9771863 10.5 40.0228137 10.5 40.0228137 12 42 12 42 9 16 9"></polygon>
+            <rect id="Rectangle" x="0" y="0" width="8" height="6"></rect>
+            <rect id="Rectangle" x="16" y="0" width="4" height="6"></rect>
+        </g>
+        <g id="Group-10" transform="translate(113, 16.5785)">
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="0" y="2" width="4" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="83" y="2" width="4" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.236232517" fill="#FF0E00" transform="translate(43.5, 10.5) scale(-1, 1) translate(-43.5, -10.5)" x="0" y="2" width="87" height="17"></rect>
+            <text id="44-BC" fill-rule="nonzero" font-family="Rajdhani-SemiBold, Rajdhani" font-size="17" font-weight="500" fill="#FFFFFF">
+                <tspan x="23" y="16">44 BC</tspan>
+            </text>
+        </g>
+        <g id="Group-10" transform="translate(65, 42.5785)">
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="0" y="2" width="3" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="132" y="2" width="3" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.24" fill="#FF0E00" transform="translate(67.5, 10.5) scale(-1, 1) translate(-67.5, -10.5)" x="0" y="2" width="135" height="17"></rect>
+            <text id="YOLO-13.21.9" fill-rule="nonzero" font-family="Rajdhani-SemiBold, Rajdhani" font-size="17" font-weight="500" fill="#FFFFFF">
+                <tspan x="26.207" y="16">YOLO 13.21.9</tspan>
+            </text>
+        </g>
+        <text id="ACTIVE-GLYPH" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="290.988281" y="31.5785">ACTIVE GLYPH</tspan>
+        </text>
+        <text id="LAYER" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="332.995117" y="196.5785">LAYER</tspan>
+        </text>
+    </g>
+</svg>
