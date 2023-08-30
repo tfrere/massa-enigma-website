@@ -18,6 +18,7 @@ import SoundStep3 from "../public/sounds/step-3.mp3";
 import SoundStep4 from "../public/sounds/step-4.mp3";
 import SoundStep5 from "../public/sounds/step-5.mp3";
 import SoundStep6 from "../public/sounds/step-6.mp3";
+import SoundStep7 from "../public/sounds/step-7.mp3";
 
 import useSound from "use-sound";
 
@@ -61,7 +62,7 @@ const MainScene = (props) => {
     loop: true,
   });
 
-  const [playStep5Sound, { stop: stop5 }] = useSound(SoundStep6, {
+  const [playStep5Sound, { stop: stop5 }] = useSound(SoundStep5, {
     playbackRate: 1.2,
     volume: 0.05,
     interrupt: true,
@@ -75,6 +76,13 @@ const MainScene = (props) => {
     loop: true,
   });
 
+  const [playStep7Sound, { stop: stop7 }] = useSound(SoundStep7, {
+    playbackRate: 1.2,
+    volume: 0.05,
+    interrupt: true,
+    loop: true,
+  });
+
   const stopSounds = () => {
     stop1();
     stop2();
@@ -82,6 +90,7 @@ const MainScene = (props) => {
     stop4();
     stop5();
     stop6();
+    stop7();
   };
 
   useFrame(({ mouse, clock }) => {
@@ -142,7 +151,7 @@ const MainScene = (props) => {
     case 6:
       backgroundVideo = ImageStep7;
       stopSounds();
-      playStep6Sound();
+      playStep7Sound();
       break;
   }
 

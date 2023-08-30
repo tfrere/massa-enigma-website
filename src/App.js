@@ -128,11 +128,6 @@ export const App = () => {
   };
 
   const nextStep = () => {
-    // console.log(
-    //   isIncomingMessageOpen,
-    //   isPopUpAboutOpen,
-    //   isPopUpGlyphUpdateOpen
-    // );
     if (
       currentStep < maxStep &&
       !isChangingStep &&
@@ -147,6 +142,7 @@ export const App = () => {
   const prevStep = () => {
     console.log(
       currentStep,
+      isPopUpEndOpen,
       isIncomingMessageOpen,
       isPopUpAboutOpen,
       isPopUpGlyphUpdateOpen
@@ -173,7 +169,9 @@ export const App = () => {
   const closeAllPopUps = () => {
     setIsIncomingMessageOpen(false);
     setIsPopUpAboutOpen(false);
+    setIsPopUpEndOpen(false);
     setIsPopUpGlyphUpdateOpen(false);
+    console.log(isIncomingMessageOpen);
   };
 
   const getData = async () => {
@@ -208,13 +206,13 @@ export const App = () => {
       } else if (isFirstLoad) {
         if (!isThisTheEnd) {
           playIncomingMessage();
-        }
-        window.setTimeout(() => {
-          setIsIncomingMessageOpen(true);
           window.setTimeout(() => {
-            setIsIncomingMessageVisible(true);
-          }, 1000);
-        }, 2000);
+            setIsIncomingMessageOpen(true);
+            window.setTimeout(() => {
+              setIsIncomingMessageVisible(true);
+            }, 1000);
+          }, 2000);
+        }
       }
 
       setQuests(questsData);
@@ -403,8 +401,8 @@ export const App = () => {
           <PopUpEnd
             isOpen={isPopUpEndOpen}
             closeFunction={() => {
-              setIsIncomingMessageOpen(false);
-              setIsPopUpEndOpen(false);
+              console.log("jefermetout");
+              closeAllPopUps();
             }}
             words={`All the glyphs have been found. ** Thank <span>you</span> for taking part in this journey.* You will be the ones writing the rest of the story. ** <a href='https://massa.net/' target='_blank'>Join Massa</a> now.`}
           />

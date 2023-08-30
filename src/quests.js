@@ -1,7 +1,7 @@
 const questsOriginalData = [
   {
-    intro: `Year 3124. **Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. *Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called <span>Massa</span> refuses to bow to this oppression. **They developped <span>Glyphs</span> which, when seen, bring down layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing.** <i>Will you join the resistance?</i>*** <span>Crypto-related bounties</span> are reserved to welcome new recruits.** Julius cesar said: “Men in general are quick to believe that which they wish to be true“.`,
-    clue: `As Julius Cesar said : 'Men in general are quick to believe that which they wish to be true.'`,
+    intro: `Year 3124. **Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. *Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called <span>Massa</span> refuses to bow to this oppression. **They developped <span>Glyphs</span> which, when seen, bring down layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing.** <i>Will you join the resistance?</i>*** <span>Crypto-related bounties</span> are reserved to welcome new recruits.** “Men in general are quick to believe that which they wish to be true.“`,
+    clue: `Men in general are quick to believe that which they wish to be true.`,
     winner: `winner0`,
     file_url: ``,
     answer: `anwser0`,
@@ -43,7 +43,7 @@ We will contact you soon via Discord.`,
   },
   {
     intro: `As the next <span>glyph</span> reveals itself, an awe-inspiring sight unfolds - a peaceful landscape of flourishing nature stretching to the horizon. ** It seems to be the culmination of the <span>quest</span>, the ultimate truth sought after. ** But the abrupt shift from desolation to this idyllic paradise feels almost too perfect, too conveniently presented. Is this truly the end, or is there more to the <span>reality</span> now witnessed? `,
-    clue: `The answer lies where the glyphs are standing`,
+    clue: `Follow the glyph for the answer. The answer follows the glyph.`,
     winner: `winner3`,
     file_url: `https://tfrere.github.io/massa-enigma-website-answers/310dcbbf4cce62f762a2aaa148d556bd/glyph-3.gif`,
     answer: `anwser3`,
@@ -57,7 +57,7 @@ We will contact you soon via Discord.`,
   },
   {
     intro: `The <span>glyphs</span> can't be unseen. ** The heart sinks with the weight of despair, as it appears that the truth we sought was not a <span>reality</span> of peace but a <span>reality</span> of utter devastation. **In this moment of darkness, the temptation to succumb to hopelessness is overwhelming. Doubts arise, questioning if the truth was worth fighting for. **Did <span>Massa</span> ever exist in the first place…? `,
-    clue: `The resistance is with us. Closer than you would expect. Look for Assam in the community.`,
+    clue: `The resistance is with us. Closer than you would expect. Look for A$$AM.`,
     winner: `winner4`,
     file_url: ``,
     answer: `anwser4`,

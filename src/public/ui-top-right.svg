@@ -17,12 +17,12 @@
             <rect id="Rectangle" x="0" y="0" width="8" height="6"></rect>
             <rect id="Rectangle" x="16" y="0" width="4" height="6"></rect>
         </g>
-        <g id="Group-10" transform="translate(45, 16.5785)">
+        <g id="Group-10" transform="translate(113, 16.5785)">
             <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="0" y="2" width="4" height="17"></rect>
-            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="151" y="2" width="4" height="17"></rect>
-            <rect id="Rectangle" fill-opacity="0.236232517" fill="#FF0E00" transform="translate(77.5, 10.5) scale(-1, 1) translate(-77.5, -10.5)" x="0" y="2" width="155" height="17"></rect>
-            <text id="SERVER-1.22.0" fill-rule="nonzero" font-family="Rajdhani-SemiBold, Rajdhani" font-size="17" font-weight="500" fill="#FFFFFF">
-                <tspan x="30" y="16">SERVER 1.22.0</tspan>
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="83" y="2" width="4" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.236232517" fill="#FF0E00" transform="translate(43.5, 10.5) scale(-1, 1) translate(-43.5, -10.5)" x="0" y="2" width="87" height="17"></rect>
+            <text id="44-BC" fill-rule="nonzero" font-family="Rajdhani-SemiBold, Rajdhani" font-size="17" font-weight="500" fill="#FFFFFF">
+                <tspan x="23" y="16">44 BC</tspan>
             </text>
         </g>
         <g id="Group-10" transform="translate(65, 42.5785)">
