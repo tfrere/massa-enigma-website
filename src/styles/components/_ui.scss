@@ -49,20 +49,20 @@
 
 .ui-top-left__infos__fps {
   position: absolute;
-  top: 180px;
+  top: 180px + 21px;
   left: 80px;
 }
 
 .ui-top-left__infos__size {
   position: absolute;
-  top: 167px;
+  top: 167px + 21px;
   left: 50px;
 }
 
 .ui-top-left__infos__date {
   position: absolute;
   top: -11px;
-  left: 217px;
+  left: 260px;
 }
 
 .ui-top-left__infos__time {
@@ -73,7 +73,7 @@
 
 .ui-top-left__infos__cam {
   position: absolute;
-  top: 139px;
+  top: 139px + 21px;
   left: 19px;
   width: 12px;
   height: 12px;
@@ -83,7 +83,7 @@
 
 .ui-top-left__infos__hash {
   position: absolute;
-  top: 260px;
+  top: 260px + 21px;
   left: 19px;
   width: 140px;
   line-break: anywhere;
@@ -112,7 +112,7 @@
 .ui-top-right__winner {
   position: absolute;
   top: 149px;
-  right: 13px;
+  right: 16px;
   font-size: 10px;
   text-align: right;
   width: 100px;
@@ -145,7 +145,7 @@
 .ui-top-right__current-step {
   position: absolute;
   top: 230px - 22px;
-  right: 31px + 2px;
+  right: 31px + 5px;
   font-size: 3rem;
   width: 70px;
   text-align: center;
@@ -154,14 +154,14 @@
 .ui-top-right__current-step-next {
   position: absolute;
   top: 254px - 22px - 20px;
-  right: 16px + 2px - 20px;
+  right: 16px + 5px - 20px;
   padding: 20px;
 }
 
 .ui-top-right__current-step-prev {
   position: absolute;
   top: 255px - 22px - 20px;
-  right: 108px + 2px - 20px;
+  right: 108px + 5px - 20px;
   padding: 20px;
   svg {
     transform: rotate(180deg);
@@ -183,7 +183,7 @@
   width: 150px;
   height: 150px;
   top: 17px;
-  right: 10px;
+  right: 13px;
 }
 
 .clickable-glyph {
@@ -191,7 +191,7 @@
   width: 150px;
   height: 150px;
   top: 17px;
-  right: 10px;
+  right: 13px;
   z-index: 1;
 }
 
@@ -200,7 +200,7 @@
   width: 150px;
   height: 150px;
   top: 17px;
-  right: 10px;
+  right: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,6 +208,8 @@
 }
 
 .ui-center-left {
+  z-index: 999999;
+
   position: absolute;
   width: 375px;
   top: 500px;
@@ -217,11 +219,11 @@
 .ui-top-right__quest-current-step {
   position: absolute;
   width: 150px;
-  top: 405px;
-  right: 13px;
+  top: 424px;
+  right: 24px;
   opacity: 0.74;
   font-family: RobotoMono-Regular;
-  font-size: 12px;
+  font-size: 14px;
   color: #dedede;
   text-align: right;
 }

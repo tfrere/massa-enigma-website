@@ -1,8 +1,8 @@
 const questsOriginalData = [
   {
-    intro: `Year 3124. **Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. *Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called <span>Massa</span> refuses to bow to this oppression. **They developped <span>Glyphs</span> which, when seen, bring down layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing.** <i>Will you join the resistance?</i>*** <span>Crypto-related bounties</span> are reserved to welcome new recruits.** “Men in general are quick to believe that which they wish to be true.“`,
-    clue: `Men in general are quick to believe that which they wish to be true.`,
-    winner: `winner0`,
+    intro: `Year 3124. **Welcome to the land of <span>Counterfeit Reality</span>.Privacy is non-existent. *Every human being gets an eye-plugged augmented reality device when they are born. What you see here is what they want you to see. However, a group of crypto activists called <span>Massa</span> refuses to bow to this oppression. **They developped <span>Glyphs</span> which, when seen, bring down layers of augmented reality. The </span>Glyphs</span> are hidden, and will be seen only by those who are truly willing.** <i>Will you join the resistance?</i>*** <span>Crypto-related bounties</span> are reserved to welcome new recruits.`,
+    clue: `“Men in general are quick to believe that which they wish to be true.“`,
+    winner: ``,
     file_url: ``,
     answer: `anwser0`,
     bot_step_success: `Good job *NAME* !
@@ -43,7 +43,7 @@ We will contact you soon via Discord.`,
   },
   {
     intro: `As the next <span>glyph</span> reveals itself, an awe-inspiring sight unfolds - a peaceful landscape of flourishing nature stretching to the horizon. ** It seems to be the culmination of the <span>quest</span>, the ultimate truth sought after. ** But the abrupt shift from desolation to this idyllic paradise feels almost too perfect, too conveniently presented. Is this truly the end, or is there more to the <span>reality</span> now witnessed? `,
-    clue: `Follow the glyph for the answer. The answer follows the glyph.`,
+    clue: `Follow the <span>glyph</span> for the answer. The answer follows the <span>glyph</span>.`,
     winner: `winner3`,
     file_url: `https://tfrere.github.io/massa-enigma-website-answers/310dcbbf4cce62f762a2aaa148d556bd/glyph-3.gif`,
     answer: `anwser3`,
@@ -57,7 +57,7 @@ We will contact you soon via Discord.`,
   },
   {
     intro: `The <span>glyphs</span> can't be unseen. ** The heart sinks with the weight of despair, as it appears that the truth we sought was not a <span>reality</span> of peace but a <span>reality</span> of utter devastation. **In this moment of darkness, the temptation to succumb to hopelessness is overwhelming. Doubts arise, questioning if the truth was worth fighting for. **Did <span>Massa</span> ever exist in the first place…? `,
-    clue: `The resistance is with us. Closer than you would expect. Look for A$$AM.`,
+    clue: `The resistance is with us. Closer than you would expect. Look for <span>A$$AM</span>.`,
     winner: `winner4`,
     file_url: ``,
     answer: `anwser4`,
@@ -86,26 +86,42 @@ We will contact you soon via Discord.`,
 
   The reward will be shared between you and the five glyphs owners.
   Think well before answering. Then type 'MAKER' or 'RESISTANCE'.`,
-    bot_step_answer_maker: `You are now part of the makers.
-  You will be given a reward as well as a unique NFT.
-
-  We will soon contact you through Discord.`,
-    bot_step_answer_resistance: `You are now the founding member of the resistance.
-  You will receive a reward, and the other who found the glyphs will be receiving an additional reward as well.
-
-  You will also receive a unique NFT.
-
-  We will soon contact you through Discord.`,
+    bot_step_answer_maker: `You chose to join Massa.
+    
+You are the chosen one, the one who will shape new realities.
+You alone deserve the final reward.
+    
+You are now king in a virtual realm, in which all others are still trapped. What you will do next only depends on you.
+    
+We thank you dearly for playing.
+We will soon contact you through Discord.`,
+    bot_step_answer_resistance: `You chose to join the Resistance.
+    
+Your bravoury will be remembered through the ages.
+This act of benevolence allows you to reach out to all the players who managed to find the different glyphs, and to guide them to you, allowing them to fight by your side.
+    
+The rewards for this last glyph will be shared between you.
+    
+You are the pillars of this community.
+We thank you dearly for playing.`,
     bot_step_intro: `Seek the truth. Find the last glyph... Good luck !`,
   },
   {
-    intro: `All the glyphs have been found. ** Thank <span>you</span> for taking part in this journey.* You will be the ones writing the rest of the story. ** <a href='https://massa.net/' target='_blank'>Join Massa</a> now.`,
-    clue: ``,
-    winner: `winner5`,
-    answser: ``,
-    bot_step_success: `Thanks for all the fish.`,
-    bot_step_intro: `Seek the truth. Find the last glyph... Good luck !`,
+    intro: `The last <span>glyph</span> has been found, and comes the realization. ** Who would be powerful enough to create the glyphs ? Only the shapers of reality themselves. Those who claimed to be the resistance are no one but the makers of the layers. This was an invitation all along. An invitation to participate in the creation of a new reality. The last glyph finder was offered a choice, and chose to fight and join the resistance, thus providing hope for all the glyphs finders, and for humanity. You are now armed with the weapons to decipher reality, and to save everyon from their dreaming state.`,
+    clue: `The game has ended.`,
+    winner: "",
   },
 ];
 
 export default questsOriginalData;
+
+// IF RESISTANCE
+// {
+//   intro: `The last <span>glyph</span> has been found, and comes the realization. ** Who would be powerful enough to create the glyphs ? Only the shapers of reality themselves. Those who claimed to be the resistance are no one but the makers of the layers. This was an invitation all along. An invitation to participate in the creation of a new reality. The last glyph finder was offered a choice, and chose to fight and join the resistance, thus providing hope for all the glyphs finders, and for humanity. You are now armed with the weapons to decipher reality, and to save everyon from their dreaming state. ** Thank you for playing the game.`,
+//   clue: `The game has ended.`,
+// }
+// IF MASSA
+// {
+//   intro: `The last <span>glyph</span> has been found, and comes the realization. ** Who would be powerful enough to create the glyphs ? Only the shapers of reality themselves. Those who claimed to be the resistance are no one but the makers of the layers. ** This was an invitation all along. ** An invitation to participate in the creation of a new reality. The last glyph finder was offered a choice, and chose to join Massa, and to start creating realities. You can never be sure you can make the distinction between what is real, and what is not. All you can do is keep looking for the glyphs, hoping one will allow you to escape.** Thank you for playing the game.`,
+//   clue: `The game has ended.`,
+// }

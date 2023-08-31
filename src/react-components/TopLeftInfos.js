@@ -72,11 +72,11 @@ const TopLeftInfos = () => {
         <p className="ui-top-left__infos__date">{date.toDateString()}</p>
         <p className="ui-top-left__infos__hash">
           <span>Hash </span>
-          {`kwwsv=22wiuhuh1jlwkxe1lr2pdvvd0hqljpd0zhevlwh0dqvzhuv25d4gd89f94g7d75783<i:5;d<g:<8h532jo|sk041sqj`}
+          {`kwwsv=22wiuhuh1jlwkxe1lr2pdvvd0hqljpd0zhevlwh0dqvzhuv2;t|k6KkddPnI]hezMKeQ]:;gy2jo|sk041sqj`}
           <span
             id="deeper"
             className="hidden"
-          >{`kwwsv=22wiuhuh1jlwkxe1lr2pdvvd0hqljpd0zhevlwh0dqvzhuv2e9g:9:g5i;hg8g54d77e3h8;;99;3fe<2jo|sk041jli`}</span>
+          >{`kwwsv=22wiuhuh1jlwkxe1lr2pdvvd0hqljpd0zhevlwh0dqvzhuv2;Hnf75[87tFOqWKp7<n4K<oXp2jo|sk041jli`}</span>
         </p>
       </div>
     </>

@@ -26,7 +26,6 @@ import Fireflies from "./components/Fireflies";
 import Glyph3d from "./components/Glyph3d";
 import IncomingMessage from "./react-components/IncomingMessage";
 import PopUpAbout from "./react-components/PopUpAbout";
-import PopUpEnd from "./react-components/PopUpEnd";
 import TopLeftInfos from "./react-components/TopLeftInfos";
 import PopUpGlyphUpdate from "./react-components/PopUpGlyphUpdate";
 import TypingText from "./react-components/TypingText";
@@ -204,15 +203,13 @@ export const App = () => {
       if (newCurrentStep != maxStep && !isFirstLoad) {
         setIsPopUpGlyphUpdateOpen(true);
       } else if (isFirstLoad) {
-        if (!isThisTheEnd) {
-          playIncomingMessage();
+        playIncomingMessage();
+        window.setTimeout(() => {
+          setIsIncomingMessageOpen(true);
           window.setTimeout(() => {
-            setIsIncomingMessageOpen(true);
-            window.setTimeout(() => {
-              setIsIncomingMessageVisible(true);
-            }, 1000);
-          }, 2000);
-        }
+            setIsIncomingMessageVisible(true);
+          }, 1000);
+        }, 2000);
       }
 
       setQuests(questsData);
@@ -285,7 +282,7 @@ export const App = () => {
             {currentStep == 0 && !quests[currentStep].winner ? (
               <>
                 <UiTopRightNotFound className="ui-top-right__unknown-glyph blinking-slow" />
-                <div className="ui-top-right__winner">unknown...</div>
+                <div className="ui-top-right__winner">unknown</div>
               </>
             ) : (
               <>
@@ -322,27 +319,9 @@ export const App = () => {
             <StepArrow />
           </span>
           <span className="ui-top-right__quest-current-step">
-            {maxStep}/6 found glyphs
+            {maxStep}/6 glyphs
           </span>
           <UiTopRight />
-        </div>
-        <div className="ui-center-left">
-          {!isThisTheEnd ? (
-            <IncomingMessage
-              clueText={clueText}
-              introText={introText}
-              currentStep={currentStep}
-              isFinalStep={winnerText === ""}
-              isHidden={!isIncomingMessageVisible}
-              isOpen={isIncomingMessageOpen}
-              openFunction={() => {
-                setIsIncomingMessageOpen(true);
-              }}
-              closeFunction={() => {
-                setIsIncomingMessageOpen(false);
-              }}
-            />
-          ) : null}
         </div>
       </div>
       <div className="ui-bottom-left">
@@ -351,7 +330,7 @@ export const App = () => {
 
       <div className="ui-bottom-right">
         <Button
-          className="square square-diag"
+          className="square-diag"
           onClick={() => {
             // changeRoute();
             setIsPopUpAboutOpen(true);
@@ -367,7 +346,7 @@ export const App = () => {
           }}
         />
         <Button
-          className="square square-diag--reverse"
+          className="square square-diag"
           onClick={() => {
             window.open("https://discord.gg/nh8rMTda", "_blank");
           }}
@@ -396,16 +375,32 @@ export const App = () => {
           }
         />
       </div>
+      <div className="ui-center-left">
+        <IncomingMessage
+          clueText={clueText}
+          introText={introText + " **" + clueText}
+          currentStep={currentStep}
+          isFinalStep={winnerText === ""}
+          isHidden={!isIncomingMessageVisible}
+          isOpen={isIncomingMessageOpen}
+          openFunction={() => {
+            setIsIncomingMessageOpen(true);
+          }}
+          closeFunction={() => {
+            setIsIncomingMessageOpen(false);
+          }}
+        />
+      </div>
       {isThisTheEnd ? (
         <>
-          <PopUpEnd
-            isOpen={isPopUpEndOpen}
-            closeFunction={() => {
-              console.log("jefermetout");
-              closeAllPopUps();
+          <Button
+            className="join-massa square square-diag"
+            onClick={() => {
+              window.open("https://massa.net/", "_blank");
             }}
-            words={`All the glyphs have been found. ** Thank <span>you</span> for taking part in this journey.* You will be the ones writing the rest of the story. ** <a href='https://massa.net/' target='_blank'>Join Massa</a> now.`}
-          />
+          >
+            Join Massa
+          </Button>
         </>
       ) : null}
       <PopUpGlyphUpdate
@@ -450,14 +445,22 @@ export const App = () => {
             <>
               <Fireflies
                 color="#FF0000"
-                count={20}
+                count={50}
                 scale={[0.03, 0.03, 0.03]}
                 position={[0.1, -0.5, -1]}
               />
-              <Glyph3d
-                position={[0.1, -0.5, -1]}
-                className="final-center-glyph"
-              />
+
+              <Float
+                floatIntensity={1}
+                speed={5}
+                floatingRange={[0, 0.25]}
+                rotationIntensity={0}
+              >
+                <Glyph3d
+                  position={[0.1, -0.5, -1]}
+                  className="final-center-glyph"
+                />
+              </Float>
             </>
           ) : null}
           <MainScene

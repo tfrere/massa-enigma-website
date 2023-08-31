@@ -182,3 +182,40 @@ canvas {
   width: 150px;
   height: 150px;
 }
+
+.join-massa {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  width: 250px;
+  padding: 20px 40px;
+  margin: auto;
+  z-index: 9999;
+  height: auto;
+  color: white;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: -1;
+    clip-path: polygon(
+      calc(100% - 1px) 11px,
+      calc(100% - 1px) 100%,
+      100% 100%,
+      100% 10px,
+      calc(100% - 10px) 0,
+      0% 0%,
+      0% calc(100% - 10px),
+      10px 100%,
+      100% 100%
+    );
+  }
+}

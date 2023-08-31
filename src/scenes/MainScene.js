@@ -4,6 +4,8 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import VideoTexturedPlane from "../components/VideoTexturedPlane";
 import SkyBox from "../components/Skybox";
 
+import TextScramble from "../components/TextScramble";
+
 import ImageStep1 from "../public/videos/STEP_1.mp4";
 import ImageStep2 from "../public/videos/STEP_2.mp4";
 import ImageStep3 from "../public/videos/STEP_3.mp4";
@@ -165,7 +167,7 @@ const MainScene = (props) => {
           (8 / 1.1) * textureRatio,
         ]}
         rotation={[0, 0, 0]}
-        position={[0, 0, -1.2]}
+        position={[props.currentStep == 6 ? -0.05 : 0, 0, -1.2]}
       />
       {/* <SkyBox imageUrl={backgroundVideo} /> */}
     </>

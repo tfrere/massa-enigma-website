@@ -70,8 +70,20 @@ const caesarDecrypt = (text, shift = 3) => {
   return caesarEncrypt(text, -shift);
 };
 
+function generateRandomHash() {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  for (let i = 0; i < 25; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters[randomIndex];
+  }
+  return result;
+}
+
 window.caesarEncrypt = caesarEncrypt;
 window.caesarDecrypt = caesarDecrypt;
+window.generateRandomHash = generateRandomHash;
 
 createRoot(document.getElementById("root")).render(
   <>

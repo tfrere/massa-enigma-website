@@ -44,7 +44,7 @@ const Introduction = (props) => {
           channel to earn the associated reward.
           <br />
           <br /> You are<span> not alone</span> on this journey. Only the first
-          to find the answer to the <span>enigmas</span> will be rewarded.
+          to find the answer to each <span>enigma</span> will be rewarded.
           <br />
           <br /> Good luck.
         </p>

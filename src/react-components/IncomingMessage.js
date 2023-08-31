@@ -3,6 +3,7 @@ import useSound from "use-sound";
 
 import { ReactComponent as UiIncomingMessage } from "../public/ui-incoming-message.svg";
 import { ReactComponent as ReadMoreButton } from "../public/read-more-button.svg";
+import { ReactComponent as UiCross } from "../public/ui-cross.svg";
 
 import clickSound from "../public/sounds/switch-on.mp3";
 
@@ -40,7 +41,8 @@ export const IncomingMessage = ({
 
   return (
     <div className={classNames}>
-      <UiIncomingMessage />
+      <UiCross className="incoming-message__ui-cross" />
+      <UiCross className="incoming-message__ui-cross-bot" />
       <PopUpMessage
         text={introText}
         isOpen={isModalOpen}
@@ -49,7 +51,15 @@ export const IncomingMessage = ({
           closeFunction();
         }}
       />
-      <div className="incoming-message__words">{clueText}</div>
+      <div className="incoming-message__words">
+        <UiIncomingMessage />
+
+        <div
+          dangerouslySetInnerHTML={{
+            __html: clueText,
+          }}
+        ></div>
+      </div>
       <ReadMoreButton
         className="incoming-message__button"
         onMouseOver={() => {
