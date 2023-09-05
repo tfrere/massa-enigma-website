@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { config } from "./GlyphGenerator";
 
 var removeBlack = function (data, imageData, bufferctx) {
   for (var i = 0; i < data.length; i += 4) {
@@ -10,49 +9,7 @@ var removeBlack = function (data, imageData, bufferctx) {
   bufferctx.putImageData(imageData, 0, 0);
 };
 
-const changeGlyph = (config, step) => {
-  switch (step) {
-    case 0:
-      // S
-      config.angle = 142;
-      config.skewAngle = 12;
-      config.poly = 1;
-      break;
-    case 1:
-      // A
-      config.angle = 24;
-      config.skewAngle = 4.5;
-      config.poly = 2;
-      break;
-    case 2:
-      // M
-      config.angle = 24;
-      config.skewAngle = 6;
-      config.poly = 3;
-      break;
-    case 3:
-      // S
-      config.angle = 37;
-      config.skewAngle = 86;
-      config.poly = 4;
-      break;
-    case 4:
-      // A
-      config.angle = 37;
-      config.skewAngle = 86;
-      config.poly = 5;
-      break;
-    case 5:
-      // S
-      config.angle = 142;
-      config.skewAngle = 12;
-      config.poly = 5;
-      break;
-  }
-  document.fract.set(config);
-};
-
-export default function Glyph({ step, className, size = 150 }) {
+export default function Glyph({ step, className, size = 160 }) {
   const canvasRef = useRef();
 
   const loop = () => {
@@ -73,10 +30,6 @@ export default function Glyph({ step, className, size = 150 }) {
     }
     window.requestAnimationFrame(loop);
   };
-
-  useEffect(() => {
-    changeGlyph(config, step);
-  }, [step]);
 
   useEffect(() => {
     let raf = window.requestAnimationFrame(loop);

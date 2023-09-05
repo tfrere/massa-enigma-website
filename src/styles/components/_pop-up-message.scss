@@ -21,3 +21,12 @@
   pointer-events: all;
   user-select: none;
 }
+
+.pop-up-message__logo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 500px;
+  background: url(../../public/big-background-massa-logo.svg) no-repeat;
+}

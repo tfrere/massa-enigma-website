@@ -91,7 +91,7 @@ export default PopUpAbout;
 //               setHasFinished(true);
 //             }, 500);
 //           }}
-//           words="You are about to enter a game designed by <a href='https://obvious-art.com/' target='_blank'>Obvious</a>and <a href='https://massa.net/' target='_blank'>Massa</a>. To participate, seek the answers to the <span>enigmas</span>, and share them on <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a> to earn the associated reward."
+//           words="You are about to enter a game designed by <a href='https://obvious-art.com/' target='_blank'>Obvious</a>and <a href='https://massa.net/' target='_blank'>Massa</a>. To participate, seek the answers to the <span>enigmas</span>, and share them on <a target='_blank' href='https://discord.gg/massa'>Discord</a> to earn the associated reward."
 //         />
 //         <p
 //           className={`introduction__content__link ${

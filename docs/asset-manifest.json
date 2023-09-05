@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.85593d89.css",
-    "main.js": "/static/js/main.e82ab6e4.js",
+    "main.css": "/static/css/main.fe3564db.css",
+    "main.js": "/static/js/main.fe42cfd0.js",
     "static/js/510.336e55b9.chunk.js": "/static/js/510.336e55b9.chunk.js",
-    "static/media/STEP_2.mp4": "/static/media/STEP_2.c28bf153e0ed0d98bce3.mp4",
+    "static/media/STEP_2.mp4": "/static/media/STEP_2.36faa3ea92c9d4f23d94.mp4",
     "static/media/STEP_1.mp4": "/static/media/STEP_1.60fdfca20a35b51ab854.mp4",
     "static/media/STEP_3.mp4": "/static/media/STEP_3.d1090acfb91615d8cd83.mp4",
-    "static/media/STEP_4.mp4": "/static/media/STEP_4.47c8670a5703f39dd447.mp4",
+    "static/media/STEP_4.mp4": "/static/media/STEP_4.9139a2b5b9e53430e1e7.mp4",
     "static/media/STEP_7.mp4": "/static/media/STEP_7.9b2a797f801cf5375899.mp4",
-    "static/media/STEP_6.mp4": "/static/media/STEP_6.c681cc63fd1dbb75ed9a.mp4",
+    "static/media/STEP_6.mp4": "/static/media/STEP_6.37bb9be3629c44962a8a.mp4",
     "static/media/STEP_5.mp4": "/static/media/STEP_5.3c4a895c423963777c86.mp4",
     "static/media/step-5.mp3": "/static/media/step-5.9502e74069a3e6ebe7e0.mp3",
     "static/media/step-1.mp3": "/static/media/step-1.22ea4f32bd12390d7403.mp3",
@@ -22,20 +22,21 @@
     "static/media/ui-bottom-left.svg": "/static/media/ui-bottom-left.936b06921441c82d46d4cf280b81d23c.svg",
     "static/media/keyboard-0.mp3": "/static/media/keyboard-0.17789e92d316d085efe9.mp3",
     "static/media/ui-center.svg": "/static/media/ui-center.cb54b893451682bea8aa2bda2096baa8.svg",
-    "static/media/ui-top-left.svg": "/static/media/ui-top-left.008cd6e922ed3e2957c7e01059ff30ae.svg",
-    "static/media/ui-top-right.svg": "/static/media/ui-top-right.967f239f61810b4a79c208f1c28383df.svg",
+    "static/media/ui-top-left.svg": "/static/media/ui-top-left.2b2735c7628e15be6b3409805dc98bf0.svg",
+    "static/media/ui-top-right.svg": "/static/media/ui-top-right.d98bfaab4ad0ba876b0c130cc3f42137.svg",
     "static/media/noise.mp3": "/static/media/noise.e8e4b34491da0354de92.mp3",
     "static/media/discord-icon.svg": "/static/media/discord-icon.c16d888db359aa73e472449dfde6a175.svg",
     "static/media/pop-down.mp3": "/static/media/pop-down.cc0a5518c9c63592453b.mp3",
     "static/media/switch-off.mp3": "/static/media/switch-off.e5ebe933069f3e7808fc.mp3",
     "static/media/loading.svg": "/static/media/loading.516ca3be76763a6a312a992b52c14b56.svg",
+    "static/media/big-background-massa-logo.svg": "/static/media/big-background-massa-logo.057074382b83fd6a09e0.svg",
     "static/media/instagram-icon.svg": "/static/media/instagram-icon.8ef0462129da7cf5b78f2fe586419ec5.svg",
+    "static/media/loading-logo.svg": "/static/media/loading-logo.984e999aa53e3f1c6eeceaaeafa564e1.svg",
     "index.html": "/index.html",
-    "static/media/loading-logo.svg": "/static/media/loading-logo.13d9ca0c6465aa463273260b5590ce2c.svg",
     "static/media/switch-on.mp3": "/static/media/switch-on.88d10ee7414a1fcc5a37.mp3",
     "static/media/read-more-button.svg": "/static/media/read-more-button.069ad77f6ac9af7a1d3fd6726b62d332.svg",
-    "static/media/ui-center-scan.svg": "/static/media/ui-center-scan.8654995907e414c794d2b1e92ffa3146.svg",
     "static/media/ui-incoming-message.svg": "/static/media/ui-incoming-message.b4b4e8b3b4d8cbb54f91e35560b81261.svg",
+    "static/media/ui-center-scan.svg": "/static/media/ui-center-scan.0a2390a2fffc70174e7047eb19661c4d.svg",
     "static/media/sound-icon.svg": "/static/media/sound-icon.18d0bf08baac94d8d986fa46d289855c.svg",
     "static/media/external-link.svg": "/static/media/external-link.ba09e8964afcb06090c6.svg",
     "static/media/ui-cross.svg": "/static/media/ui-cross.586b02a2898ea735e202a964673c22e6.svg",
@@ -44,7 +45,7 @@
     "static/media/ui-top-right-not-found.svg": "/static/media/ui-top-right-not-found.97ab863083991db7c87d389f8f7c11e5.svg"
   },
   "entrypoints": [
-    "static/css/main.85593d89.css",
-    "static/js/main.e82ab6e4.js"
+    "static/css/main.fe3564db.css",
+    "static/js/main.fe42cfd0.js"
   ]
 }

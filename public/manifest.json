@@ -1,0 +1,9 @@
+{
+  "name": "Counterfeit Reality",
+  "short_name": "Counterfeit Reality",
+  "start_url": "/",
+  "icons": [],
+  "theme_color": "#0b2043",
+  "background_color": "#0b2043",
+  "display": "standalone"
+}

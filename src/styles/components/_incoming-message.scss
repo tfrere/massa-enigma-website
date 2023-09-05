@@ -56,9 +56,10 @@
   margin-right: 0px;
   margin-top: 5px;
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.8;
+  transition: all 200ms ease;
   &:hover {
-    opacity: 0.8;
+    opacity: 1;
   }
 }
 

@@ -27,7 +27,7 @@ function addYear(date) {
   return date;
 }
 
-const TopLeftInfos = () => {
+const TopLeftInfos = ({ isDeeperVisible }) => {
   const [fps, setFps] = useState(0);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -71,12 +71,10 @@ const TopLeftInfos = () => {
         </p>
         <p className="ui-top-left__infos__date">{date.toDateString()}</p>
         <p className="ui-top-left__infos__hash">
-          <span>Hash </span>
-          {`kwwsv=22wiuhuh1jlwkxe1lr2pdvvd0hqljpd0zhevlwh0dqvzhuv2;t|k6KkddPnI]hezMKeQ]:;gy2jo|sk041sqj`}
-          <span
-            id="deeper"
-            className="hidden"
-          >{`kwwsv=22wiuhuh1jlwkxe1lr2pdvvd0hqljpd0zhevlwh0dqvzhuv2;Hnf75[87tFOqWKp7<n4K<oXp2jo|sk041jli`}</span>
+          <span>Checksum </span>
+          {isDeeperVisible
+            ? `kwwsv=22fud1pdvvd1qhw2;Hnf75[87tFOqWKp7<n4K<oXp2jo|sk041jli`
+            : `kwwsv=22fud1pdvvd1qhw2;t|k6KkddPnI]hezMKeQ]:;gy2jo|sk041sqj`}
         </p>
       </div>
     </>

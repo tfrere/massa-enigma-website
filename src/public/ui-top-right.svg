@@ -36,28 +36,22 @@
         <text id="ACTIVE-GLYPH" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
             <tspan x="290.988281" y="31.5785">ACTIVE GLYPH</tspan>
         </text>
-        <text id="LAYER" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
-            <tspan x="332.995117" y="196.5785">LAYER</tspan>
+        <text id="REALITY-LAYER" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="284.987305" y="196.5785">REALITY LAYER</tspan>
         </text>
-        <g id="Group-3" opacity="0.0621744792" transform="translate(211.7428, 18.0347)">
-            <g id="Group-2" transform="translate(0.7572, 0.4653)" stroke="#FFFFFF">
-                <line x1="0.242773655" y1="42.4945584" x2="158.242774" y2="42.4945584" id="Path-4"></line>
-                <line x1="0.242773655" y1="85.4544124" x2="158.242774" y2="85.4544124" id="Path-4"></line>
-                <line x1="0.242773655" y1="127.870471" x2="158.242774" y2="127.870471" id="Path-4"></line>
-                <line x1="59.5" y1="75" x2="209.5" y2="75" id="Path-4" transform="translate(134.5, 75) rotate(-270) translate(-134.5, -75)"></line>
-                <line x1="16.5" y1="75" x2="166.5" y2="75" id="Path-4" transform="translate(91.5, 75) rotate(-270) translate(-91.5, -75)"></line>
-                <line x1="-28.5" y1="75" x2="121.5" y2="75" id="Path-4" transform="translate(46.5, 75) rotate(-270) translate(-46.5, -75)"></line>
-                <line x1="-65.5" y1="66" x2="67.5" y2="67.5" id="Path-4" transform="translate(1, 66.5) rotate(-270) translate(-1, -66.5)"></line>
+        <g id="Group-3" opacity="0.116210938" transform="translate(212, 18)">
+            <g id="Group-2" transform="translate(1.0998, 0)" stroke="#FFFFFF">
+                <line x1="0" y1="49.2936877" x2="156.900221" y2="49.2936877" id="Path-4"></line>
+                <line x1="0" y1="99.1271184" x2="156.900221" y2="99.1271184" id="Path-4"></line>
+                <line x1="31.4289461" y1="74.2865169" x2="180.002012" y2="74.286549" id="Path-4" transform="translate(105.7155, 74.2865) rotate(-270) translate(-105.7155, -74.2865)"></line>
+                <line x1="-20.611345" y1="74.2865456" x2="127.961721" y2="74.2865203" id="Path-4" transform="translate(53.6752, 74.2865) rotate(-270) translate(-53.6752, -74.2865)"></line>
             </g>
-            <line x1="0" y1="0.54379562" x2="158" y2="0.54379562" id="Path-4" stroke="#D1D1D1"></line>
-            <line x1="0" y1="21.7518248" x2="158" y2="21.7518248" id="Path-4" stroke="#D1D1D1"></line>
-            <line x1="0" y1="64.1678832" x2="158" y2="64.1678832" id="Path-4" stroke="#D1D1D1"></line>
-            <line x1="0" y1="107.127737" x2="158" y2="107.127737" id="Path-4" stroke="#D1D1D1"></line>
-            <line x1="15.7572263" y1="150.465296" x2="158" y2="149.543796" id="Path-4" stroke="#D1D1D1"></line>
-            <line x1="81.2572263" y1="75.4652956" x2="231.257226" y2="75.4652956" id="Path-4" stroke="#D1D1D1" transform="translate(156.2572, 75.4653) rotate(-270) translate(-156.2572, -75.4653)"></line>
-            <line x1="38.2572263" y1="75.4652956" x2="188.257226" y2="75.4652956" id="Path-4" stroke="#D1D1D1" transform="translate(113.2572, 75.4653) rotate(-270) translate(-113.2572, -75.4653)"></line>
-            <line x1="-6.74277366" y1="75.4652956" x2="143.257226" y2="75.4652956" id="Path-4" stroke="#D1D1D1" transform="translate(68.2572, 75.4653) rotate(-270) translate(-68.2572, -75.4653)"></line>
-            <line x1="-51.7427737" y1="75.4652956" x2="98.2572263" y2="75.4652956" id="Path-4" stroke="#D1D1D1" transform="translate(23.2572, 75.4653) rotate(-270) translate(-23.2572, -75.4653)"></line>
+            <line x1="0" y1="25.5" x2="157.141304" y2="25.5" id="Path-4" stroke="#D1D1D1"></line>
+            <line x1="0" y1="74.5" x2="157.141304" y2="74.5" id="Path-4" stroke="#D1D1D1"></line>
+            <line x1="0" y1="124.5" x2="157.141304" y2="124.5" id="Path-4" stroke="#D1D1D1"></line>
+            <line x1="56.713467" y1="74.713467" x2="205.286533" y2="74.713467" id="Path-4" stroke="#D1D1D1" transform="translate(131, 74.7135) rotate(-270) translate(-131, -74.7135)"></line>
+            <line x1="4.71346705" y1="74.713467" x2="153.286533" y2="74.713467" id="Path-4" stroke="#D1D1D1" transform="translate(79, 74.7135) rotate(-270) translate(-79, -74.7135)"></line>
+            <line x1="-47.286533" y1="74.7134798" x2="101.286533" y2="74.7134543" id="Path-4" stroke="#D1D1D1" transform="translate(27, 74.7135) rotate(-270) translate(-27, -74.7135)"></line>
         </g>
         <g id="Group-2" transform="translate(361, 351)" stroke="#FFFFFF">
             <g id="Group">
@@ -74,5 +68,9 @@
             <circle id="Oval" stroke-width="0.5" cx="9" cy="9" r="3"></circle>
         </g>
         <line x1="369.5" y1="361.5" x2="369.635246" y2="449.12684" id="Path-2" stroke="#979797" opacity="0.40797061"></line>
+        <g id="Group-5" opacity="0.159667969" transform="translate(212, 18.4269)" stroke="#D1D1D1">
+            <line x1="0" y1="74.0730659" x2="157.141304" y2="74.0730659" id="Path-4"></line>
+            <line x1="4.71346705" y1="74.286533" x2="153.286533" y2="74.286533" id="Path-4" transform="translate(79, 74.2865) rotate(-270) translate(-79, -74.2865)"></line>
+        </g>
     </g>
 </svg>

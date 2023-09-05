@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="344px" height="58px" viewBox="0 0 344 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ui-center-scan</title>
+    <g id="ui-center-scan" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.631208147">
+        <g id="Group" transform="translate(39, 5)">
+            <path d="M8,0 L255.87094,0 L261.762662,0 L267,5.23733847 L267,10.4746769 L267,35.0788464 L267,40.5394232 L261.539423,46 L254.010196,46 L8,46 L0,38 L0,8 L8,0 Z" id="Rectangle" fill-opacity="0.559413243" fill="#000000"></path>
+            <text id="SEARCHING-GLYPH…" transform="translate(133.5, 23) rotate(-360) translate(-133.5, -23)" font-family="Rajdhani-Regular, Rajdhani" font-size="22" font-weight="normal" fill="#FFFFFF">
+                <tspan x="45.445" y="29">SEARCHING GLYPH…</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

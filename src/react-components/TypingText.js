@@ -18,8 +18,8 @@ let splitString = (inputString) => {
     if (inputString[i] == "<") {
       let tag = regex.exec(inputString.substring(i, inputString.length))[0];
       array.push(tag);
-      i += tag.length;
-      array.push(" ");
+      i += tag.length - 1;
+      // array.push(" ");
     } else {
       array.push(inputString[i]);
     }

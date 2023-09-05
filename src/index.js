@@ -29,7 +29,7 @@ console.log(`
 `);
 
 // remove the logs
-// console.log = function () {};
+// console.log = console.warn = console.error = () => {};
 
 import * as ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";

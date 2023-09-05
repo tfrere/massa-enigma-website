@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="379px" height="465px" viewBox="0 0 379 465" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ui-top-right</title>
+    <g id="ui-top-right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M369.5,16.5 L369.5,167.5 L228.207107,167.5 L212.5,151.792893 L212.5,16.5 L369.5,16.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <path d="M246.802632,181.5 L369.5,181.5 L369.5,299.5 L262.509738,299.5 L246.802632,283.792893 L246.802632,181.5 Z" id="Rectangle" stroke-opacity="0.408735795" stroke="#FFFFFF" fill-opacity="0.607435533" fill="#000000"></path>
+        <path d="M152,360 L370,360 L370,360 L370,457 L152,457 L144,449 L144,368 L152,360 Z" id="Rectangle" fill-opacity="0.607435533" fill="#000000"></path>
+        <text id="QUEST-INFORMATIONS" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="245.982422" y="385.5785">QUEST INFORMATIONS</tspan>
+        </text>
+        <text id="Find-a-way-out" font-family="RobotoMono-Medium, Roboto Mono" font-size="22" font-weight="400" fill="#DEDEDE">
+            <tspan x="170.169922" y="419.5785">Find a way out</tspan>
+        </text>
+        <g id="Group-4" transform="translate(179, 81.5785) scale(-1, 1) translate(-179, -81.5785)translate(158, 75.5785)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" points="0 12 1.97530864 12 1.97530864 10.5 6.02469136 10.5 6.02469136 12 8 12 8 9 0 9"></polygon>
+            <polygon id="Path" points="16 12 17.9771863 12 17.9771863 10.5 40.0228137 10.5 40.0228137 12 42 12 42 9 16 9"></polygon>
+            <rect id="Rectangle" x="0" y="0" width="8" height="6"></rect>
+            <rect id="Rectangle" x="16" y="0" width="4" height="6"></rect>
+        </g>
+        <g id="Group-10" transform="translate(113, 16.5785)">
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="0" y="2" width="4" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="83" y="2" width="4" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.236232517" fill="#FF0E00" transform="translate(43.5, 10.5) scale(-1, 1) translate(-43.5, -10.5)" x="0" y="2" width="87" height="17"></rect>
+            <text id="44-BC" fill-rule="nonzero" font-family="Rajdhani-SemiBold, Rajdhani" font-size="17" font-weight="500" fill="#FFFFFF">
+                <tspan x="23" y="16">44 BC</tspan>
+            </text>
+        </g>
+        <g id="Group-10" transform="translate(65, 42.5785)">
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="0" y="2" width="3" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.178485577" fill="#FF0E00" x="132" y="2" width="3" height="17"></rect>
+            <rect id="Rectangle" fill-opacity="0.24" fill="#FF0E00" transform="translate(67.5, 10.5) scale(-1, 1) translate(-67.5, -10.5)" x="0" y="2" width="135" height="17"></rect>
+            <text id="YOLO-13.21.9" fill-rule="nonzero" font-family="Rajdhani-SemiBold, Rajdhani" font-size="17" font-weight="500" fill="#FFFFFF">
+                <tspan x="26.207" y="16">YOLO 13.21.9</tspan>
+            </text>
+        </g>
+        <text id="ACTIVE-GLYPH" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="290.988281" y="31.5785">ACTIVE GLYPH</tspan>
+        </text>
+        <text id="REALITY-LAYER" opacity="0.650692894" font-family="RobotoMono-Medium, Roboto Mono" font-size="10" font-weight="400" fill="#DEDEDE">
+            <tspan x="284.987305" y="196.5785">REALITY LAYER</tspan>
+        </text>
+        <g id="Group-3" opacity="0.116210938" transform="translate(212, 18)">
+            <g id="Group-2" transform="translate(1.0998, 0)" stroke="#FFFFFF">
+                <line x1="0" y1="49.2936877" x2="156.900221" y2="49.2936877" id="Path-4"></line>
+                <line x1="0" y1="99.1271184" x2="156.900221" y2="99.1271184" id="Path-4"></line>
+                <line x1="31.4289461" y1="74.2865169" x2="180.002012" y2="74.286549" id="Path-4" transform="translate(105.7155, 74.2865) rotate(-270) translate(-105.7155, -74.2865)"></line>
+                <line x1="-20.611345" y1="74.2865456" x2="127.961721" y2="74.2865203" id="Path-4" transform="translate(53.6752, 74.2865) rotate(-270) translate(-53.6752, -74.2865)"></line>
+            </g>
+            <line x1="0" y1="25.5" x2="157.141304" y2="25.5" id="Path-4" stroke="#D1D1D1"></line>
+            <line x1="0" y1="74.5" x2="157.141304" y2="74.5" id="Path-4" stroke="#D1D1D1"></line>
+            <line x1="0" y1="124.5" x2="157.141304" y2="124.5" id="Path-4" stroke="#D1D1D1"></line>
+            <line x1="56.713467" y1="74.713467" x2="205.286533" y2="74.713467" id="Path-4" stroke="#D1D1D1" transform="translate(131, 74.7135) rotate(-270) translate(-131, -74.7135)"></line>
+            <line x1="4.71346705" y1="74.713467" x2="153.286533" y2="74.713467" id="Path-4" stroke="#D1D1D1" transform="translate(79, 74.7135) rotate(-270) translate(-79, -74.7135)"></line>
+            <line x1="-47.286533" y1="74.7134798" x2="101.286533" y2="74.7134543" id="Path-4" stroke="#D1D1D1" transform="translate(27, 74.7135) rotate(-270) translate(-27, -74.7135)"></line>
+        </g>
+        <g id="Group-2" transform="translate(361, 351)" stroke="#FFFFFF">
+            <g id="Group">
+                <line x1="9" y1="0" x2="9" y2="18" id="Path"></line>
+                <line x1="18" y1="9" x2="0" y2="9" id="Path"></line>
+            </g>
+            <circle id="Oval" stroke-width="0.5" cx="9" cy="9" r="3"></circle>
+        </g>
+        <g id="Group-2" transform="translate(361, 448)" stroke="#FFFFFF">
+            <g id="Group">
+                <line x1="9" y1="0" x2="9" y2="18" id="Path"></line>
+                <line x1="18" y1="9" x2="0" y2="9" id="Path"></line>
+            </g>
+            <circle id="Oval" stroke-width="0.5" cx="9" cy="9" r="3"></circle>
+        </g>
+        <line x1="369.5" y1="361.5" x2="369.635246" y2="449.12684" id="Path-2" stroke="#979797" opacity="0.40797061"></line>
+        <g id="Group-5" opacity="0.159667969" transform="translate(212, 18.4269)" stroke="#D1D1D1">
+            <line x1="0" y1="74.0730659" x2="157.141304" y2="74.0730659" id="Path-4"></line>
+            <line x1="4.71346705" y1="74.286533" x2="153.286533" y2="74.286533" id="Path-4" transform="translate(79, 74.2865) rotate(-270) translate(-79, -74.2865)"></line>
+        </g>
+    </g>
+</svg>

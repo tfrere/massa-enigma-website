@@ -34,6 +34,7 @@ import MuteSoundButton from "./react-components/MuteSoundButton";
 import MousePosition from "./react-components/MousePosition";
 import incomingMessage from "./public/sounds/incoming-message-2.mp3";
 
+import randomRange from "./utils/randomRange.js";
 import useCookie from "react-use-cookie";
 
 import { ReactComponent as UiCenter } from "./public/ui-center.svg";
@@ -47,21 +48,36 @@ import { ReactComponent as StepArrow } from "./public/step-arrow.svg";
 import { ReactComponent as InstagramIcon } from "./public/instagram-icon.svg";
 import {
   ClientFactory,
-  Args,
-  Client,
   bytesToStr,
   DefaultProviderUrls,
 } from "@massalabs/massa-web3";
 
 import { useInterval } from "./hooks/useInterval";
-import questsOriginalData from "./quests.js";
 
-const IS_PROD = false;
+import { config } from "./components/GlyphGenerator";
+import changeGlyph from "./utils/changeGlyph.js";
+
+let inputSequence = "";
+const targetWord = "deeper";
+let oldRandomGlyphIndex;
+let randomGlyphIndex;
+
+document.addEventListener("keydown", function (event) {
+  inputSequence += event.key.toLowerCase();
+  if (inputSequence.length > targetWord.length) {
+    inputSequence = inputSequence.substr(
+      inputSequence.length - targetWord.length
+    );
+  }
+  if (inputSequence === targetWord) {
+    window.isDeeperVisible = true;
+  }
+});
 
 export const App = () => {
   const debugMode = false;
   const htmlPortalRef = useRef();
-  const [quests, setQuests] = useState(IS_PROD ? [] : questsOriginalData);
+  const [quests, setQuests] = useState([]);
 
   const [currentStep, setCurrentStep] = useState(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
@@ -69,6 +85,7 @@ export const App = () => {
   const [isPopUpAboutOpen, setIsPopUpAboutOpen] = useState(false);
   const [isPopUpEndOpen, setIsPopUpEndOpen] = useState(false);
   const [isIncomingMessageOpen, setIsIncomingMessageOpen] = useState(false);
+
   const [isIncomingMessageVisible, setIsIncomingMessageVisible] =
     useState(false);
   const [isPopUpGlyphUpdateOpen, setIsPopUpGlyphUpdateOpen] = useState(false);
@@ -76,6 +93,7 @@ export const App = () => {
   const [introText, setIntroText] = useState("");
   const [winnerText, setWinnerText] = useState("");
   const [isChangingStep, setIsChangingStep] = useState(0);
+  const [isDeeperVisible, setIsDeeperVisible] = useState(false);
 
   let postProcessingValues = [
     {
@@ -139,13 +157,6 @@ export const App = () => {
     }
   };
   const prevStep = () => {
-    console.log(
-      currentStep,
-      isPopUpEndOpen,
-      isIncomingMessageOpen,
-      isPopUpAboutOpen,
-      isPopUpGlyphUpdateOpen
-    );
     if (
       currentStep > 0 &&
       !isChangingStep &&
@@ -170,28 +181,23 @@ export const App = () => {
     setIsPopUpAboutOpen(false);
     setIsPopUpEndOpen(false);
     setIsPopUpGlyphUpdateOpen(false);
-    console.log(isIncomingMessageOpen);
   };
 
   const getData = async () => {
     let questsData;
-    if (IS_PROD) {
-      const testnetClient = await ClientFactory.createDefaultClient(
-        DefaultProviderUrls.BUILDNET,
-        true // retry failed requests
-      );
+    const testnetClient = await ClientFactory.createDefaultClient(
+      DefaultProviderUrls.BUILDNET,
+      true // retry failed requests
+    );
 
-      const res = await testnetClient.smartContracts().readSmartContract({
-        maxGas: BigInt(10000000),
-        targetAddress: "AS1TdyVHk9b7EkqfzBo5zjr9GJT24tZbnSQnq7yMCm1gn1chK5Di",
-        targetFunction: "getQuest",
-        parameter: [],
-      });
+    const res = await testnetClient.smartContracts().readSmartContract({
+      maxGas: BigInt(10000000),
+      targetAddress: "AS1TdyVHk9b7EkqfzBo5zjr9GJT24tZbnSQnq7yMCm1gn1chK5Di",
+      targetFunction: "getQuest",
+      parameter: [],
+    });
 
-      questsData = JSON.parse(bytesToStr(res.returnValue));
-    } else {
-      questsData = questsOriginalData;
-    }
+    questsData = JSON.parse(bytesToStr(res.returnValue));
 
     const newCurrentStep = questsData.length - 1;
 
@@ -219,12 +225,32 @@ export const App = () => {
     }
   };
 
+  // Fetch data
+
+  useInterval(() => {
+    getData();
+  }, 1000);
+
   useEffect(() => {
     getData();
     window.setTimeout(() => {
       setIsFirstLoad(false);
     }, 1000);
   }, []);
+
+  // Update glyph effect
+  useEffect(() => {
+    changeGlyph(config, maxStep - 1);
+  }, [maxStep]);
+
+  useInterval(() => {
+    if (isThisTheEnd) {
+      while (oldRandomGlyphIndex === randomGlyphIndex)
+        randomGlyphIndex = Math.floor(randomRange(0, maxStep));
+      changeGlyph(config, randomGlyphIndex);
+      oldRandomGlyphIndex = randomGlyphIndex;
+    }
+  }, 7000);
 
   useEffect(() => {
     if (quests.length > 0) {
@@ -240,7 +266,9 @@ export const App = () => {
   }, [currentStep, quests]);
 
   useInterval(() => {
-    getData();
+    if (window.isDeeperVisible && !isDeeperVisible) {
+      setIsDeeperVisible(true);
+    }
   }, 1000);
 
   const isThisTheEnd = currentStep === 6;
@@ -252,7 +280,6 @@ export const App = () => {
       }`}
     >
       <div ref={htmlPortalRef} id="html-portal"></div>
-
       <div
         className={`ui-container ${isThisTheEnd ? "ui-container--hidden" : ""}`}
       >
@@ -264,7 +291,7 @@ export const App = () => {
           ) : null}
         </div>
         <div className="ui-top-left">
-          <TopLeftInfos />
+          <TopLeftInfos isDeeperVisible={isDeeperVisible} />
           <UiTopLeft />
         </div>
         <div className="ui-top-right">
@@ -279,7 +306,7 @@ export const App = () => {
             ""
           )}
           <>
-            {currentStep == 0 && !quests[currentStep].winner ? (
+            {currentStep == 0 && !quests[currentStep]?.winner ? (
               <>
                 <UiTopRightNotFound className="ui-top-right__unknown-glyph blinking-slow" />
                 <div className="ui-top-right__winner">unknown</div>
@@ -288,7 +315,7 @@ export const App = () => {
               <>
                 <Glyph className="ui-top-right__glyph" step={maxStep - 1} />
                 <div className="ui-top-right__winner">
-                  found by <span>{quests[maxStep]?.winner}</span>
+                  found by <span>{quests[maxStep - 1]?.winner}</span>
                 </div>
               </>
             )}
@@ -327,7 +354,6 @@ export const App = () => {
       <div className="ui-bottom-left">
         <UiBottomLeft />
       </div>
-
       <div className="ui-bottom-right">
         <Button
           className="square-diag"
@@ -339,7 +365,7 @@ export const App = () => {
           About this game
         </Button>
         <PopUpAbout
-          text="<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and €€<a href='https://obvious-art.com/' target='_blank'>Obvious</a>€€** The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/nh8rMTda'>Discord</a>.**Rewards will be discovered upon resolution of the riddles, and include discounts for <span>Massa ICO</span> as well as <span>Obvious  NFT artwork</span>."
+          text="<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and €€<a href='https://obvious-art.com/' target='_blank'>Obvious</a>€€** The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/massa'>Discord</a>.**Rewards will be discovered upon resolution of the riddles, and include discounts for <span>Massa ICO</span> as well as <span>Obvious  NFT artwork</span>."
           isOpen={isPopUpAboutOpen}
           closeFunction={() => {
             setIsPopUpAboutOpen(false);
@@ -348,7 +374,7 @@ export const App = () => {
         <Button
           className="square square-diag"
           onClick={() => {
-            window.open("https://discord.gg/nh8rMTda", "_blank");
+            window.open("https://discord.gg/massa", "_blank");
           }}
         >
           <DiscordIcon />
@@ -403,17 +429,19 @@ export const App = () => {
           </Button>
         </>
       ) : null}
-      <PopUpGlyphUpdate
-        isOpen={isPopUpGlyphUpdateOpen}
-        currentStep={currentStep}
-        winnerText={quests[currentStep].winner}
-        closeFunction={() => {
-          setIsPopUpGlyphUpdateOpen(false);
-          window.setTimeout(() => {
-            setIsIncomingMessageOpen(true);
-          }, 1000);
-        }}
-      />
+      {currentStep >= 1 ? (
+        <PopUpGlyphUpdate
+          isOpen={isPopUpGlyphUpdateOpen}
+          currentStep={currentStep}
+          winnerText={quests[currentStep - 1]?.winner}
+          closeFunction={() => {
+            setIsPopUpGlyphUpdateOpen(false);
+            window.setTimeout(() => {
+              setIsIncomingMessageOpen(true);
+            }, 1000);
+          }}
+        />
+      ) : null}
       <div id="r3f-canvas" className="screen">
         <Canvas
           dpr={[1, 1]}

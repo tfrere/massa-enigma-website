@@ -3,21 +3,22 @@ import React, { useEffect, useState, useRef } from "react";
 import useInterval from "../utils/useInterval.js";
 
 const Preloader = (props) => {
-  const [currentDots, setCurrentDots] = useState("...");
+  const sentences = ["Initialize", "Start virtual machine", "Launch server"];
+  const [currentSentence, setCurrentSentence] = useState(0);
 
   useInterval(() => {
-    if (currentDots.length === 3) {
-      setCurrentDots(".");
+    if (currentSentence === sentences.length - 1) {
+      setCurrentSentence(0);
     } else {
-      setCurrentDots(currentDots + ".");
+      setCurrentSentence(currentSentence + 1);
     }
-  }, 400);
+  }, 1250);
 
   return (
     <div className={`screen center preloader ${props.className}`}>
-      <div>
+      <div className="center">
         <img src={LoadingSvg} />
-        <p className="preloader__text">Loading{currentDots}</p>
+        <p className="preloader__text">{sentences[currentSentence]}</p>
       </div>
     </div>
   );

@@ -1,20 +1,26 @@
 .preloader {
   z-index: 999999999999999999;
   position: absolute;
+
   div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     transition: all 150ms ease-in-out;
     transform: translateY(0);
   }
 }
 
 .preloader.preloader--hidden div {
-  transform: translateY(10px);
+  transform: translateY(5px);
   opacity: 0;
 }
 
 .preloader__text {
   font-size: 10px;
   opacity: 0.3;
-
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
   text-align: center;
 }

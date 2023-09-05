@@ -56,7 +56,7 @@ export const IncomingMessage = ({
 
         <div
           dangerouslySetInnerHTML={{
-            __html: clueText,
+            __html: "..." + clueText,
           }}
         ></div>
       </div>
