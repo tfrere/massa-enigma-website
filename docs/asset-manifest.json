@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fe3564db.css",
-    "main.js": "/static/js/main.fe42cfd0.js",
+    "main.js": "/static/js/main.a31b398b.js",
     "static/js/510.336e55b9.chunk.js": "/static/js/510.336e55b9.chunk.js",
     "static/media/STEP_2.mp4": "/static/media/STEP_2.36faa3ea92c9d4f23d94.mp4",
     "static/media/STEP_1.mp4": "/static/media/STEP_1.60fdfca20a35b51ab854.mp4",
@@ -36,7 +36,7 @@
     "static/media/switch-on.mp3": "/static/media/switch-on.88d10ee7414a1fcc5a37.mp3",
     "static/media/read-more-button.svg": "/static/media/read-more-button.069ad77f6ac9af7a1d3fd6726b62d332.svg",
     "static/media/ui-incoming-message.svg": "/static/media/ui-incoming-message.b4b4e8b3b4d8cbb54f91e35560b81261.svg",
-    "static/media/ui-center-scan.svg": "/static/media/ui-center-scan.0a2390a2fffc70174e7047eb19661c4d.svg",
+    "static/media/ui-center-scan.svg": "/static/media/ui-center-scan.79dee370b6ad0ff2a455ade8373c1415.svg",
     "static/media/sound-icon.svg": "/static/media/sound-icon.18d0bf08baac94d8d986fa46d289855c.svg",
     "static/media/external-link.svg": "/static/media/external-link.ba09e8964afcb06090c6.svg",
     "static/media/ui-cross.svg": "/static/media/ui-cross.586b02a2898ea735e202a964673c22e6.svg",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.fe3564db.css",
-    "static/js/main.fe42cfd0.js"
+    "static/js/main.a31b398b.js"
   ]
 }
