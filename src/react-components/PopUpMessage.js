@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import useSound from "use-sound";
 
-import { ReactComponent as UiIncomingMessage } from "../public/ui-incoming-message.svg";
+import { ReactComponent as UiIncomingMessage } from "../public/ui-big-incoming-message.svg";
 
 import incomingMessage from "../public/sounds/incoming-message.mp3";
 import TypingText from "../react-components/TypingText";
