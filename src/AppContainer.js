@@ -32,7 +32,9 @@ const listDataToFetch = [
 ];
 
 const fetchVideo = async (url) => {
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    cache: "force-cache",
+  });
   return res;
 };
 
