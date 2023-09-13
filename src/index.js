@@ -97,3 +97,43 @@ createRoot(document.getElementById("root")).render(
     </Router>
   </>
 );
+
+// import * as webllm from "@mlc-ai/web-llm";
+
+// // We use label to intentionally keep it simple
+// function setLabel(id, text) {
+//   const label = document.getElementById(id);
+//   if (label == null) {
+//     throw Error("Cannot find label " + id);
+//   }
+//   label.innerText = text;
+// }
+
+// async function main() {
+//   // create a ChatModule,
+//   const chat = new webllm.ChatModule();
+//   // This callback allows us to report initialization progress
+//   chat.setInitProgressCallback((report) => {
+//     setLabel("init-label", report.text);
+//   });
+//   // You can also try out "RedPajama-INCITE-Chat-3B-v1-q4f32_0"
+//   await chat.reload("Llama-2-7b-chat-hf-q4f32_1");
+
+//   const generateProgressCallback = (_step, message) => {
+//     setLabel("generate-label", message);
+//   };
+
+//   const prompt0 = "What is the capital of Canada?";
+//   setLabel("prompt-label", prompt0);
+//   const reply0 = await chat.generate(prompt0, generateProgressCallback);
+//   console.log(reply0);
+
+//   const prompt1 = "Can you write a poem about it?";
+//   setLabel("prompt-label", prompt1);
+//   const reply1 = await chat.generate(prompt1, generateProgressCallback);
+//   console.log(reply1);
+
+//   console.log(await chat.runtimeStatsText());
+// }
+
+// main();

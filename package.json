@@ -7,6 +7,7 @@
   "homepage": "https://cr.massa.net/",
   "dependencies": {
     "@massalabs/massa-web3": "^2.1.0",
+    "@mlc-ai/web-llm": "^0.2.8",
     "@react-spring/three": "9.6.1",
     "@react-three/drei": "9.56.1",
     "@react-three/fiber": "8.10.1",
@@ -23,10 +24,9 @@
     "three": "0.148.0",
     "use-sound": "^4.0.1"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -Rf docs;  GENERATE_SOURCEMAP=false react-scripts build --no-maps && mv build docs; cp src/public/answser.aup3 docs/static/; touch CNAME;echo 'cr.massa.net' > CNAME; cp CNAME docs/static/; cp CNAME docs/",
+    "build": "rm -Rf docs;  GENERATE_SOURCEMAP=false react-scripts build --no-maps && mv build docs; touch CNAME;echo 'cr.massa.net' > CNAME; cp CNAME docs/static/; cp CNAME docs/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

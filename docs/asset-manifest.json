@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.01f4c183.css",
-    "main.js": "/static/js/main.a165e3ee.js",
+    "main.css": "/static/css/main.f14ef806.css",
+    "main.js": "/static/js/main.7ba711b8.js",
     "static/js/510.336e55b9.chunk.js": "/static/js/510.336e55b9.chunk.js",
     "static/media/STEP_2.mp4": "/static/media/STEP_2.36faa3ea92c9d4f23d94.mp4",
     "static/media/STEP_1.mp4": "/static/media/STEP_1.60fdfca20a35b51ab854.mp4",
@@ -30,9 +30,9 @@
     "static/media/switch-off.mp3": "/static/media/switch-off.e5ebe933069f3e7808fc.mp3",
     "static/media/loading.svg": "/static/media/loading.516ca3be76763a6a312a992b52c14b56.svg",
     "static/media/big-background-massa-logo.svg": "/static/media/big-background-massa-logo.057074382b83fd6a09e0.svg",
+    "index.html": "/index.html",
     "static/media/instagram-icon.svg": "/static/media/instagram-icon.8ef0462129da7cf5b78f2fe586419ec5.svg",
     "static/media/loading-logo.svg": "/static/media/loading-logo.984e999aa53e3f1c6eeceaaeafa564e1.svg",
-    "index.html": "/index.html",
     "static/media/switch-on.mp3": "/static/media/switch-on.88d10ee7414a1fcc5a37.mp3",
     "static/media/read-more-button.svg": "/static/media/read-more-button.069ad77f6ac9af7a1d3fd6726b62d332.svg",
     "static/media/ui-incoming-message.svg": "/static/media/ui-incoming-message.b4b4e8b3b4d8cbb54f91e35560b81261.svg",
@@ -46,7 +46,7 @@
     "static/media/ui-top-right-not-found.svg": "/static/media/ui-top-right-not-found.97ab863083991db7c87d389f8f7c11e5.svg"
   },
   "entrypoints": [
-    "static/css/main.01f4c183.css",
-    "static/js/main.a165e3ee.js"
+    "static/css/main.f14ef806.css",
+    "static/js/main.7ba711b8.js"
   ]
 }
