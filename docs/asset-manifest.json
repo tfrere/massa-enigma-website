@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.19b15ade.css",
-    "main.js": "/static/js/main.fcdc2470.js",
+    "main.js": "/static/js/main.81c51b1d.js",
     "static/js/510.336e55b9.chunk.js": "/static/js/510.336e55b9.chunk.js",
     "static/media/STEP_2.mp4": "/static/media/STEP_2.36faa3ea92c9d4f23d94.mp4",
     "static/media/STEP_1.mp4": "/static/media/STEP_1.60fdfca20a35b51ab854.mp4",
@@ -21,6 +21,7 @@
     "static/media/incoming-message.mp3": "/static/media/incoming-message.c191ba3966966fba56da.mp3",
     "static/media/ui-bottom-left.svg": "/static/media/ui-bottom-left.936b06921441c82d46d4cf280b81d23c.svg",
     "static/media/keyboard-0.mp3": "/static/media/keyboard-0.17789e92d316d085efe9.mp3",
+    "static/media/ui-center-scan.svg": "/static/media/ui-center-scan.1de8e03d0801ace1de7ca76f268fcc1e.svg",
     "static/media/ui-center.svg": "/static/media/ui-center.cb54b893451682bea8aa2bda2096baa8.svg",
     "static/media/ui-top-left.svg": "/static/media/ui-top-left.2b2735c7628e15be6b3409805dc98bf0.svg",
     "static/media/ui-top-right.svg": "/static/media/ui-top-right.d98bfaab4ad0ba876b0c130cc3f42137.svg",
@@ -36,7 +37,6 @@
     "static/media/switch-on.mp3": "/static/media/switch-on.88d10ee7414a1fcc5a37.mp3",
     "static/media/read-more-button.svg": "/static/media/read-more-button.069ad77f6ac9af7a1d3fd6726b62d332.svg",
     "static/media/ui-incoming-message.svg": "/static/media/ui-incoming-message.b4b4e8b3b4d8cbb54f91e35560b81261.svg",
-    "static/media/ui-center-scan.svg": "/static/media/ui-center-scan.79dee370b6ad0ff2a455ade8373c1415.svg",
     "static/media/sound-icon.svg": "/static/media/sound-icon.18d0bf08baac94d8d986fa46d289855c.svg",
     "static/media/ui-big-incoming-message.svg": "/static/media/ui-big-incoming-message.f3c04a847494bab17d15cd0d63fc7c37.svg",
     "static/media/external-link.svg": "/static/media/external-link.ba09e8964afcb06090c6.svg",
@@ -47,6 +47,6 @@
   },
   "entrypoints": [
     "static/css/main.19b15ade.css",
-    "static/js/main.fcdc2470.js"
+    "static/js/main.81c51b1d.js"
   ]
 }
