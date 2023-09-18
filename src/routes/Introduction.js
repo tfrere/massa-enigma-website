@@ -71,13 +71,14 @@ const Introduction = (props) => {
           reward.
           <br />
           <br /> You are<span> not alone</span> on this journey. Only the first
-          to find the answer to each <span>Enigma</span> will be rewarded.
+          to find the answer to each <span>Enigma</span> will be rewarded. But
+          remember, <span>shared strength</span> is our greatest asset.
           {gameHasAlreadyStarted ? (
             <>
               <br />
               <br />
               This game has already started.
-              <br /> Check the discord for quest advancement
+              <br /> Check the discord for quest advancement.
             </>
           ) : null}
           <br />

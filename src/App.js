@@ -365,7 +365,7 @@ export const App = () => {
           About this game
         </Button>
         <PopUpAbout
-          text="<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and €€<a href='https://obvious-art.com/' target='_blank'>Obvious</a>€€** The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/massa'>Discord</a>.**Rewards will be discovered upon resolution of the riddles, and include <span>Massa tokens</span> as well as <span>Obvious  NFT artwork</span>."
+          text={`<span>Counterfeit Reality</span> is an experience proposed by  €€<a href='https://massa.net/' target='_blank'>Massa</a>€€ and €€<a href='https://obvious-art.com/' target='_blank'>Obvious</a>€€** The user is invited to solve riddles to uncover mysteries in a dystopian future. All solutions to riddles should be posted on the <a target='_blank' href='https://discord.gg/massa'>Discord</a>.**Rewards will be discovered upon resolution of the riddles, and include <span>Massa tokens</span> as well as <span>Obvious  NFT artwork</span>. *** Look closely around you; hints could be hidden everywhere and remember, the answer will <span>always</span> be forged like this : ** https://cra.massa.net/<span>[ANSWSER]</span>/glyph-<span>[NUMBER]</span>.gif`}
           isOpen={isPopUpAboutOpen}
           closeFunction={() => {
             setIsPopUpAboutOpen(false);
