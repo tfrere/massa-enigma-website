@@ -19,6 +19,10 @@ export const PopUpAbout = ({
 }) => {
   const [hasFinished, setHasFinished] = useState(false);
 
+  useKeyPress("Escape", () => {
+    closeFunction();
+  });
+
   useEffect(() => {
     if (isOpen == false) {
       setHasFinished(false);
