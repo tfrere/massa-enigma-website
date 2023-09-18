@@ -368,7 +368,7 @@ export const App = () => {
           text={`
 The user is invited to solve riddles to uncover mysteries in a dystopian future.
 ** Look around you... hints could be hidden everywhere in <span>this website</span> and <a target='_blank' href='https://discord.gg/massa'>Massa's discord</a>.
-** The answer will <span>always</span> have to be posted on the <span>#counterfeit-reality</span> discord's channel and will <span>always</span> look like this:
+** The answer will <span>always</span> have to be posted on the <span>#counterfeit-reality</span> discord channel and will <span>always</span> look like this:
 ** https://cra.massa.net/<span>[ANSWER]</span>/glyph-<span>[NUMBER]</span>.gif
 ** Rewards will be discovered upon resolution of the riddles, and include <span>Massa tokens</span> as well as <span>Obvious  NFT artwork</span>.
 ** Good luck !`}
